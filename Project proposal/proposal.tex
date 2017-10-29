@@ -1,0 +1,81 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%opening
+\title{No more learning rate tuning in gradient descent \\
+\small{Introduction to Machine Learning CSC2515 Project Proposal}}
+\author{Mathieu Ravaut, Satya Gorti}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	
+We propose a variation of the gradient descent algorithm in the which the learning rate $\eta$ is not fixed. Instead, we learn $\eta$ itself via Newton method. That way, gradient descent for any machine learning algorithm can be optimized. 
+
+\end{abstract}
+
+\section{Context}
+
+For a generic gradient descent problem with a cost function L that we want to minimize, let's introduce the following notations:\\
+\begin{itemize}
+\item $\omega(t)$ represents the weights at instant t
+\item $g(t) = \nabla L(\omega(t))$ the gradient of the cost function at instant t
+\item $\eta(t)$ is the learning rate at instant t
+\end{itemize}
+and the gradient descent problem with an adaptive learning rate can be written:\\
+\begin{align}
+\omega(t+1) &= \omega(t) - \eta(t).g(t)\\
+\eta(t+1) &= \eta(t) - \frac{f'(t)}{f''(t)}
+\end{align}
+where f is a real function defined by:\\
+$$f: \eta \rightarrow L(\omega(t) - \eta.g(t))$$
+Getting the first derivative of f is straightforward:\\
+\begin{equation}
+f'(\eta) = -g(t)^{T}.\nabla L(\omega(t)-\eta g(t)) \text{ for any $\eta$}
+\end{equation}
+Let's note that:\\
+\begin{equation}
+f'(\eta(t+1)) = -g(t)^{T}.g(t+1)
+\end{equation}
+but its second derivative is a bit harder to get. 
+
+\section{Analytical formula}
+
+The analytical formula for the second derivative is given by:\\
+\begin{equation}
+f''(\eta) = g(t)^{T}.H_{\omega(t)-\eta.g(t)}(-g(t))
+\end{equation}
+However, with n parameters in the model, the Hessian has dimension n by n, so it is very expensive to compute. We would then need a cheap way to approximate this second derivative. 
+
+\section{Finite differences}
+We propose to approximate the second derivative of f via a finite differences formula, which has a very nice expression in this case:\\
+For any $\epsilon$:\\
+\begin{equation}
+f'(\eta(t)) \approx \frac{f(\eta(t)+\epsilon)-f(\eta(t)-\epsilon)}{2\epsilon}
+\end{equation}
+and:\\
+\begin{equation}
+f''(\eta(t+1)) \approx \frac{f(\eta(t)+2\epsilon)+f(\eta(t)-2\epsilon)-2f(\eta(t))}{4\epsilon^{2}}
+\end{equation}
+so:\\
+\begin{equation}
+\eta(t+1) \approx \eta(t) -2\epsilon\frac{f(\eta(t)+\epsilon)-f(\eta(t)-\epsilon)}{f(\eta(t)+2\epsilon)+f(\eta(t)-2\epsilon)-2f(\eta(t))}
+\end{equation}
+To avoid overflowing problems, we can introduce \textbf{Laplacian smoothing}:
+\begin{equation}
+\eta(t+1) \approx \eta(t) -2\epsilon\frac{f(\eta(t)+\epsilon)-f(\eta(t)-\epsilon) + \alpha}{f(\eta(t)+2\epsilon)+f(\eta(t)-2\epsilon)-2f(\eta(t)) + \alpha} \text{ for a small real $\alpha$ to set}
+\end{equation}
+
+
+\section{Experiments}
+
+
+\end{document}
