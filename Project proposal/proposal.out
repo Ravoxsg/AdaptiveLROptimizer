@@ -1,4 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Context}{}% 1
-\BOOKMARK [1][-]{section.2}{Analytical formula}{}% 2
-\BOOKMARK [1][-]{section.3}{Finite differences}{}% 3
-\BOOKMARK [1][-]{section.4}{Experiments}{}% 4
+\BOOKMARK [1][-]{section.2}{2nd order method}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Analytical formula}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Finite differences}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Experiments}{}% 5
+\BOOKMARK [1][-]{section.4}{Further exploration.}{}% 6

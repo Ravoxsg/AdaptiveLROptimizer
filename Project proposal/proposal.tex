@@ -33,21 +33,28 @@ For a generic gradient descent problem with a cost function L that we want to mi
 and the gradient descent problem with an adaptive learning rate can be written:\\
 \begin{align}
 \omega(t+1) &= \omega(t) - \eta(t).g(t)\\
-\eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))}
+\eta(t+1) &= \eta(t) - \alpha.f'(\eta(t)) \text{ at the first order}\\
+\text{or } \eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))} \text{ at the second order}
 \end{align}
-where f is a real function defined by:\\
+where $\alpha$ is a meta-learning rate and f is the real function defined by:\\
 $$f: \eta \rightarrow L(\omega(t) - \eta.g(t))$$
+
 Getting the first derivative of f is straightforward:\\
 \begin{equation}
 f'(\eta) = -g(t)^{T}.\nabla L(\omega(t)-\eta g(t)) \text{ for any $\eta$}
 \end{equation}
+
 Let's note that:\\
 \begin{equation}
 f'(\eta(t)) = -g(t)^{T}.g(t+1)
 \end{equation}
 but its second derivative is a bit harder to get. 
 
-\section{Analytical formula}
+It seems that the first-order method is easier to compute. However, it requires to choose and tune another learning rate, $\alpha$. The second order method presents the advantage of being scale-invariant.
+
+\section{$2^{nd}$ order method}.
+
+\subsection{Analytical formula}
 
 The analytical formula for the second derivative is given by:\\
 \begin{equation}
@@ -55,7 +62,7 @@ f''(\eta) = g(t)^{T}.H_{\omega(t)-\eta.g(t)}(-g(t))
 \end{equation}
 However, with n parameters in the model, the Hessian has dimension $n \times n$, so it is very expensive to compute. We would then need a cheap way to approximate this second derivative. 
 
-\section{Finite differences}
+\subsection{Finite differences}
 We propose to approximate the second derivative of f via the \textbf{finite differences} method, which has a very nice expression in this case:\\
 For any $\epsilon$:\\
 \begin{equation}
@@ -79,12 +86,20 @@ Finally, to avoid having to set both parameters $\epsilon$ and $\alpha$, we can 
 \end{equation}
 
 \section{Experiments}
-We plan on exploring the effects of this method on the quality of convergence. Quality means both \textbf{speed of convergence}, and avoidance of \textbf{local minima}. This general method for automatic learning rate setting can be applied to any machine learning task involving gradient descent. We will compare traditional gradient descent with a fixed learning rate with our method on the following examples:\\
+We plan on exploring the effects of both first-order and second-order methods on the quality of convergence. Quality means both \textbf{speed of convergence}, and avoidance of \textbf{local minima}. This general method for automatic learning rate setting can be applied to any machine learning task involving gradient descent. We will compare traditional gradient descent with a fixed learning rate with our method on the following examples:\\
 \begin{itemize}
 \item Linear Regression. The proposed dataset is the Boston House Prices dataset studied in Assignment 1.
 \item Logistic Regression. 
 \item Image classification via neural networks. Application to simple datasets such as MNIST or CIFAR-10. 	
 \end{itemize}
+
+\section{Further exploration.}
+We can combine an adaptive learning rate method with other optimization algorithms, such as \textbf{momentum}. In this case the learning schedule could have the following form:\\
+\begin{align}
+\delta(t+1) &= -\eta(t).g(t) + \lambda.\delta(t)\\
+\omega(t+1) &= \omega(t) + \delta(t)\\
+\eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))} 
+\end{align}
 
 
 \end{document}
