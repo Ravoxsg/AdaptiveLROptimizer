@@ -25,13 +25,13 @@ We propose a variation of the gradient descent algorithm in the which the learni
 
 \section{Context}
 
-Gradient descent is massively used for optimization tasks which assume that the loss function is differentiable, especially in machine learning. However, to be efficient, it requires an adequate learning rate. A too small learning rate could lead to a very slow convergence, or the loss function stuck in a local minimum ; while a too large one could mean divergence. For a generic gradient descent problem with a cost function L that we want to minimize, let's introduce the following notations:\\
+Gradient descent is massively used for optimization tasks which assume that the loss function is differentiable, especially in machine learning. However, to be efficient, it requires an optimal learning rate. A too small learning rate could lead to a very slow convergence, or the loss function stuck in a local minimum ; while a too large one could mean divergence. For a generic gradient descent problem with a cost function L that we want to minimize, let's introduce the following notations:\\
 \begin{itemize}
 \item $\omega(t)$ represents the weights at instant t
 \item $g(t) = \nabla L(\omega(t))$ the gradient of the cost function at instant t
 \item $\eta(t)$ is the learning rate at instant t
 \end{itemize}
-and the gradient descent problem with an adaptive learning rate can be written:\\
+The gradient descent problem with an adaptive learning rate can be written:\\
 \begin{align}
 \omega(t+1) &= \omega(t) - \eta(t).g(t)\\
 \eta(t+1) &= \eta(t) + \delta(t)\\
