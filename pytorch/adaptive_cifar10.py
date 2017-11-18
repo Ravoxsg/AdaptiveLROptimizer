@@ -11,7 +11,8 @@ import torch.optim as optim
 criterion = nn.CrossEntropyLoss()
 
 nb_epochs = 2
-eps = 0.00000000001
+eps = 1e-6
+sm_value = 1e-9
 # lr = 0.00001
 
 transform = transforms.Compose(
@@ -100,10 +101,14 @@ def make_iterations(net, lr):
             inputs, labels = Variable(inputs), Variable(labels)
 
             # zeroing gradient buffers
+            net.zero_grad()
+
             outputs = net(inputs)
             loss = criterion(outputs, labels)
 
             running_loss += loss.data[0]
+            if (i%100 ==0):
+                print('loss: ', loss.data[0])
             if i % 2000 == 1999:    # print every 2000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 2000))
@@ -116,37 +121,45 @@ def make_iterations(net, lr):
             # saving model
             net.save_model()
 
-            make_update(net, lr + eps)
+            # make_update(net, lr + eps)
+            optimizer = optim.SGD(net.parameters(), lr=lr + eps)
+            optimizer.step()
             outputs_1 = net(inputs)
             loss1 = criterion(outputs_1, labels)
 
             net.undo_using_saved_model()
 
-            make_update(net, lr - eps)
+            # make_update(net, lr - eps)
+            optimizer = optim.SGD(net.parameters(), lr=lr - eps)
+            optimizer.step()
             outputs_2 = net(inputs)
             loss2 = criterion(outputs_2, labels)
 
             net.undo_using_saved_model()
 
-            make_update(net, lr + 2*eps)
+            # make_update(net, lr + 2*eps)
+            optimizer = optim.SGD(net.parameters(), lr=lr + 2*eps)
+            optimizer.step()
             outputs_3 = net(inputs)
             loss3 = criterion(outputs_3, labels)
             
             net.undo_using_saved_model()
 
-            make_update(net, lr - 2*eps)
+            # make_update(net, lr - 2*eps)
+            optimizer = optim.SGD(net.parameters(), lr=lr - 2*eps)
+            optimizer.step()
             outputs_4 = net(inputs)
             loss4 = criterion(outputs_4, labels)
 
             net.undo_using_saved_model()
 
-            delta = (loss1 - loss2 + eps)/(loss3 + loss4 - 2*loss + eps)
+            delta = (loss1 - loss2 + sm_value)/(loss3 + loss4 - 2*loss + sm_value)
 
             #make actual update
 
-            make_update(net, lr)
-            # optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9)
-            # optimizer.step()
+            # make_update(net, lr)
+            optimizer = optim.SGD(net.parameters(), lr=lr)
+            optimizer.step()
             lr = lr - 2*eps*delta.data[0]
             lr_values.append(lr)
     return lr_values, running_loss_values
