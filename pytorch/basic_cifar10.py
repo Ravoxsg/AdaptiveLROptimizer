@@ -11,18 +11,18 @@ import torch.optim as optim
 criterion = nn.CrossEntropyLoss()
 
 nb_epochs = 2
-eps = 0.00000000001
-# lr = 0.00001
+bs = 32
+lr = 0.01
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=False, transform=transform)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=bs, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-testloader = torch.utils.data.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=2)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
@@ -57,7 +57,7 @@ class Net(nn.Module):
 def make_iterations(net, lr):
     running_loss_values = []
     running_loss = 0
-    optimizer = optim.SGD(net.parameters(), lr=0.001)
+    optimizer = optim.SGD(net.parameters(), lr=lr)
     net.zero_grad()
     for epoch in range(nb_epochs): # no of epochs
         for i, data in enumerate(trainloader, 0):
@@ -78,19 +78,21 @@ def make_iterations(net, lr):
 
             # print statistics
             running_loss += loss.data[0]
-            if i % 2000 == 1999:    # print every 2000 mini-batches
-                print('[%d, %5d] loss: %.3f' %
-                    (epoch + 1, i + 1, running_loss / 2000))
+            if i % 156 == 155:    # print every 150 mini-batches
+                print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss / 156))
+                running_loss_values.append(running_loss/156)
                 running_loss = 0.0
-                running_loss_values.append(running_loss)
 
     return running_loss_values
 
+if __name__ == '__main__':
 
-net = Net()
-print(net)
+	net = Net()
+	print(net)
 
-running_loss_values = make_iterations(net, 0.001)
+	running_loss_values = make_iterations(net, lr)
 
-plt.plot(running_loss_values)
-plt.show()
+	plt.plot(running_loss_values)
+	plt.ylim((0,5))
+	plt.title('Loss over itrations')
+	plt.show()

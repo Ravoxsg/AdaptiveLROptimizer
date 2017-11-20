@@ -11,20 +11,23 @@ import torch.optim as optim
 criterion = nn.CrossEntropyLoss()
 
 nb_epochs = 2
-eps = 0.00000000001
-# lr = 0.00001
+bs = 32
+eps = 1e-7
+sm_value = 1e-9
+lr_ini = 1e-2
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=False, transform=transform)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=bs, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-testloader = torch.utils.data.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=2)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
 
 def imshow(img):
     img = img / 2 + 0.5     # unnormalize
@@ -93,63 +96,86 @@ def make_iterations(net, lr):
     net.zero_grad()
     for epoch in range(nb_epochs): # no of epochs
         for i, data in enumerate(trainloader, 0):
-            if (i%100==0): 
-                print("i is:", i)
-                print('lr: ', lr)
+
             inputs, labels = data
             inputs, labels = Variable(inputs), Variable(labels)
 
             # zeroing gradient buffers
+            net.zero_grad()
+            
             outputs = net(inputs)
             loss = criterion(outputs, labels)
-
-            running_loss += loss.data[0]
-            if i % 2000 == 1999:    # print every 2000 mini-batches
-                print('[%d, %5d] loss: %.3f' %
-                    (epoch + 1, i + 1, running_loss / 2000))
-                running_loss = 0.0
-                print('learning rate:', lr)
-                running_loss_values.append(running_loss)
-
             #loss backward prop (only once, want to use same gradients to update learning rate)
             loss.backward()
             # saving model
             net.save_model()
 
-            make_update(net, lr + eps)
+            #loss
+            optimizer = optim.SGD(net.parameters(), lr=lr)
+            optimizer.step()
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+
+            net.undo_using_saved_model()
+
+            #loss1
+            optimizer = optim.SGD(net.parameters(), lr=lr+eps)
+            optimizer.step()
             outputs_1 = net(inputs)
             loss1 = criterion(outputs_1, labels)
 
             net.undo_using_saved_model()
 
-            make_update(net, lr - eps)
+            #loss2
+            optimizer = optim.SGD(net.parameters(), lr=lr-eps)
+            optimizer.step()
             outputs_2 = net(inputs)
             loss2 = criterion(outputs_2, labels)
 
             net.undo_using_saved_model()
 
-            make_update(net, lr + 2*eps)
+            #loss3
+            optimizer = optim.SGD(net.parameters(), lr=lr+2*eps)
+            optimizer.step()
             outputs_3 = net(inputs)
             loss3 = criterion(outputs_3, labels)
             
             net.undo_using_saved_model()
 
-            make_update(net, lr - 2*eps)
+            #loss4
+            optimizer = optim.SGD(net.parameters(), lr=lr-2*eps)
+            optimizer.step()
             outputs_4 = net(inputs)
             loss4 = criterion(outputs_4, labels)
 
             net.undo_using_saved_model()
 
-            delta = (loss1 - loss2 + eps)/(loss3 + loss4 - 2*loss + eps)
-
             #make actual update
 
-            make_update(net, lr)
-            # optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9)
-            # optimizer.step()
+            #weights
+            # make_update(net, lr)
+            optimizer = optim.SGD(net.parameters(), lr=lr)
+            optimizer.step()
+
+            #learning rate
+            delta = (loss1 - loss2)/(loss3 + loss4 - 2*loss + 0.01*(torch.abs(loss) + torch.abs(loss1) + torch.abs(loss2) + torch.abs(loss3) + torch.abs(loss4)))
+            #if (delta.data[0] > 0):
             lr = lr - 2*eps*delta.data[0]
             lr_values.append(lr)
+
+            #keeping track of everything
+            running_loss += loss.data[0]
+            if i % 156 == 155:    # print every 2000 mini-batches
+                print('[%d, %5d] loss: %.3f' %
+                    (epoch + 1, i + 1, running_loss / 156))
+                print('learning rate:', lr)
+                print('Numerator: {}'.format(loss1-loss2))
+                print('Denominator: {}'.format(loss3+loss4-2*loss))
+                running_loss_values.append(running_loss/156)
+                running_loss = 0.0
+
     return lr_values, running_loss_values
+
 
 def make_update(net, lr):
 
@@ -169,12 +195,19 @@ def make_update(net, lr):
     net.fc3.bias.data -= net.fc3.bias.grad.data.float()*lr
 
 
+if __name__ == '__main__':
 
-net = Net()
+    net = Net()
 
-print(net)
+    print(net)
 
-lr_values, running_loss_values = make_iterations(net, 0.000001)
+    lr_values, running_loss_values = make_iterations(net, lr_ini)
 
-plt.plot(lr_values)
-plt.show()
+    plt.plot(running_loss_values)
+    plt.ylim((0,5))
+    plt.title('Loss over itrations')
+    plt.show()
+
+    plt.plot(lr_values)
+    plt.ylim((0,20*lr_ini))
+    plt.show()
