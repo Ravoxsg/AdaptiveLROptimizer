@@ -10,11 +10,11 @@ import torch.optim as optim
 
 criterion = nn.CrossEntropyLoss()
 
-nb_epochs = 2
+nb_epochs = 10
 bs = 32
 eps = 1e-7
 sm_value = 1e-9
-lr_ini = 1e-2
+lr_ini = 1e-4
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -52,7 +52,12 @@ class Net(nn.Module):
             "fc3.weight": self.fc3.weight.data.clone(),
             "fc3.bias": self.fc3.bias.data.clone()
         }
-    
+
+    def save_model2(self):
+        parameters = self.state_dict()
+        for key in parameters.keys():
+            self.saved_model2[key] = parameters[key].clone()
+
     def undo_using_saved_model(self):
         self.conv1.weight.data = self.saved_model['conv1.weight']
         self.conv1.bias.data = self.saved_model['conv1.bias']
@@ -69,9 +74,14 @@ class Net(nn.Module):
         self.fc3.weight.data= self.saved_model['fc3.weight']
         self.fc3.bias.data= self.saved_model['fc3.bias']
 
+    def undo_using_saved_model2(self):
+
+        for key in self.saved_model2.keys():
+            self.state_dict()[key] = self.saved_model2[key]
 
     def __init__(self):
         super(Net, self).__init__()
+        self.saved_model2 = {}
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
@@ -108,7 +118,7 @@ def make_iterations(net, lr):
             #loss backward prop (only once, want to use same gradients to update learning rate)
             loss.backward()
             # saving model
-            net.save_model()
+            net.save_model2()
 
             #loss
             optimizer = optim.SGD(net.parameters(), lr=lr)
@@ -116,7 +126,7 @@ def make_iterations(net, lr):
             outputs = net(inputs)
             loss = criterion(outputs, labels)
 
-            net.undo_using_saved_model()
+            net.undo_using_saved_model2()
 
             #loss1
             optimizer = optim.SGD(net.parameters(), lr=lr+eps)
@@ -124,7 +134,7 @@ def make_iterations(net, lr):
             outputs_1 = net(inputs)
             loss1 = criterion(outputs_1, labels)
 
-            net.undo_using_saved_model()
+            net.undo_using_saved_model2()
 
             #loss2
             optimizer = optim.SGD(net.parameters(), lr=lr-eps)
@@ -132,7 +142,7 @@ def make_iterations(net, lr):
             outputs_2 = net(inputs)
             loss2 = criterion(outputs_2, labels)
 
-            net.undo_using_saved_model()
+            net.undo_using_saved_model2()
 
             #loss3
             optimizer = optim.SGD(net.parameters(), lr=lr+2*eps)
@@ -140,7 +150,7 @@ def make_iterations(net, lr):
             outputs_3 = net(inputs)
             loss3 = criterion(outputs_3, labels)
             
-            net.undo_using_saved_model()
+            net.undo_using_saved_model2()
 
             #loss4
             optimizer = optim.SGD(net.parameters(), lr=lr-2*eps)
@@ -148,7 +158,7 @@ def make_iterations(net, lr):
             outputs_4 = net(inputs)
             loss4 = criterion(outputs_4, labels)
 
-            net.undo_using_saved_model()
+            net.undo_using_saved_model2()
 
             #make actual update
 
@@ -158,7 +168,7 @@ def make_iterations(net, lr):
             optimizer.step()
 
             #learning rate
-            delta = (loss1 - loss2)/(loss3 + loss4 - 2*loss + 0.01*(torch.abs(loss) + torch.abs(loss1) + torch.abs(loss2) + torch.abs(loss3) + torch.abs(loss4)))
+            delta = (loss1 - loss2)/(loss3 + loss4 - 2*loss)
             #if (delta.data[0] > 0):
             lr = lr - 2*eps*delta.data[0]
             lr_values.append(lr)
@@ -169,8 +179,8 @@ def make_iterations(net, lr):
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 156))
                 print('learning rate:', lr)
-                print('Numerator: {}'.format(loss1-loss2))
-                print('Denominator: {}'.format(loss3+loss4-2*loss))
+                print('Numerator: {}'.format((loss1-loss2).data[0]))
+                print('Denominator: {}'.format((loss3+loss4-2*loss).data[0]))
                 running_loss_values.append(running_loss/156)
                 running_loss = 0.0
 
