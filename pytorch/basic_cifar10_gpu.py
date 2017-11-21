@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import torch.optim as optim
 
 
+dtype = torch.cuda.FloatTensor
+
 #HYPER-PARAMETERS
 nb_epochs = 1
 bs = 32
@@ -75,7 +77,7 @@ def make_iterations(net, lr):
             inputs, labels = data
 
             # wrap them in Variable
-            inputs, labels = Variable(inputs), Variable(labels)
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
 
             # zero the parameter gradients
             optimizer.zero_grad()
@@ -94,10 +96,10 @@ def make_iterations(net, lr):
                 running_loss = 0.0
 
             #getting the predictions on current training batch
-            if ((net(inputs)).data.numpy()).shape[0] == bs:
+            if ((net(inputs).cpu()).data.numpy()).shape[0] == bs:
                 nbs += 1
-                preds = np.argmax(((net(inputs)).data.numpy()).reshape((bs,10)), axis=1)
-                partial_acc = sum(preds == (labels).data.numpy())
+                preds = np.argmax(((net(inputs).cpu()).data.numpy()).reshape((bs,10)), axis=1)
+                partial_acc = sum(preds == (labels.cpu()).data.numpy())
                 acc += partial_acc
 
         #accuracy on whole training set
@@ -111,13 +113,13 @@ def make_iterations(net, lr):
         for i, data in enumerate(testloader, 0):
 
             inputs, labels = data
-            inputs, labels = Variable(inputs), Variable(labels)
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
 
-            #getting the predictions on current batch
-            if ((net(inputs)).data.numpy()).shape[0] == bs:
+            #getting the predictions on current test batch
+            if ((net(inputs).cpu()).data.numpy()).shape[0] == bs:
                 nbs += 1
-                preds = np.argmax(((net(inputs)).data.numpy()).reshape((bs,10)), axis=1)
-                partial_acc = sum(preds == (labels).data.numpy())
+                preds = np.argmax(((net(inputs).cpu()).data.numpy()).reshape((bs,10)), axis=1)
+                partial_acc = sum(preds == (labels.cpu()).data.numpy())
                 acc += partial_acc
 
         #accuracy on whole test set
@@ -134,6 +136,7 @@ def make_iterations(net, lr):
 if __name__ == '__main__':
     
     net = Net()
+    net.cuda()
 
     print(net)
 
