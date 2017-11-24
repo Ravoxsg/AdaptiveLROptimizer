@@ -8,13 +8,20 @@ import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import torch.optim as optim
 
-criterion = nn.CrossEntropyLoss()
+from cnn import Net
 
-nb_epochs = 5
+
+dtype = torch.cuda.FloatTensor
+
+#HYPER-PARAMETERS
+nb_epochs = 20
 bs = 32
-eps = 1e-8
-sm_value = 1e-9
-lr_ini = 0.0001
+eps = 1e-5
+sm_value = 1e-10
+lr_ini = 0.001
+alpha = 0
+criterion = nn.CrossEntropyLoss()
+model_name = 'cnn_adaptive_20_0_001.pt' #model name
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -36,79 +43,24 @@ def imshow(img):
     plt.xlabel('Random images')
     plt.show()
 
-
-class Net(nn.Module):
-
-    def save_model(self):
-        self.saved_model = {
-            "conv1.weight": self.conv1.weight.data.clone(),
-            "conv1.bias": self.conv1.bias.data.clone(),
-            "conv2.weight": self.conv2.weight.data.clone(),
-            "conv2.bias": self.conv2.bias.data.clone(),
-            "fc1.weight": self.fc1.weight.data.clone(),
-            "fc1.bias": self.fc1.bias.data.clone(),
-            "fc2.weight": self.fc2.weight.data.clone(),
-            "fc2.bias": self.fc2.bias.data.clone(),
-            "fc3.weight": self.fc3.weight.data.clone(),
-            "fc3.bias": self.fc3.bias.data.clone()
-        }
-
-    def save_model2(self):
-        parameters = self.state_dict()
-        for key in parameters.keys():
-            self.saved_model2[key] = parameters[key].clone()
-
-    def undo_using_saved_model(self):
-        self.conv1.weight.data = self.saved_model['conv1.weight']
-        self.conv1.bias.data = self.saved_model['conv1.bias']
-        
-        self.conv2.weight.data = self.saved_model['conv2.weight']
-        self.conv2.bias.data = self.saved_model['conv2.bias']
-
-        self.fc1.weight.data= self.saved_model['fc1.weight']
-        self.fc1.bias.data= self.saved_model['fc1.bias']
-        
-        self.fc2.weight.data= self.saved_model['fc2.weight']
-        self.fc2.bias.data= self.saved_model['fc2.bias']
-        
-        self.fc3.weight.data= self.saved_model['fc3.weight']
-        self.fc3.bias.data= self.saved_model['fc3.bias']
-
-    def undo_using_saved_model2(self):
-
-        for key in self.saved_model2.keys():
-            self.state_dict()[key] = self.saved_model2[key]
-
-    def __init__(self):
-        super(Net, self).__init__()
-        self.saved_model2 = {}
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
-
-    def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
-
-
 def make_iterations(net, lr):
     running_loss_values = []
     lr_values = []
+    train_acc_values = []
+    test_acc_values = []
     running_loss = 0
     net.zero_grad()
+
     for epoch in range(nb_epochs): # no of epochs
+
+        acc = 0
+        nbs = 0
+        losses_vars = []
+
         for i, data in enumerate(trainloader, 0):
 
             inputs, labels = data
-            inputs, labels = Variable(inputs), Variable(labels)
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
 
             # zeroing gradient buffers
             net.zero_grad()
@@ -122,42 +74,49 @@ def make_iterations(net, lr):
 
             optimizer = optim.SGD(net.parameters(), lr = (lr+eps))
             outputs = net(inputs)
-            loss1 = criterion(outputs, labels)
-            loss1.backward()
+            loss = criterion(outputs, labels)
+            loss.backward()
             optimizer.step()
+            outputs = net(inputs)
+            loss1 = criterion(outputs, labels)
 
             net.undo_using_saved_model2()
             net.zero_grad()
 
-            optimizer = optim.SGD(net.parameters(), lr = (lr - eps))
+            optimizer = optim.SGD(net.parameters(), lr = (lr-eps))
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
             outputs = net(inputs)
             loss2 = criterion(outputs, labels)
-            loss2.backward()
-            optimizer.step()
 
             net.undo_using_saved_model2()
             net.zero_grad()
 
-            optimzer = optim.SGD(net.parameters(), lr=(lr + 2*eps))
+            optimzer = optim.SGD(net.parameters(), lr=(lr+2*eps))
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimzer.step()
             outputs = net(inputs)
             loss3 = criterion(outputs, labels)
-            loss3.backward()
-            optimzer.step()
 
             net.undo_using_saved_model2()
             net.zero_grad()
 
-            optimizer = optim.SGD(net.parameters(), lr=(lr - 2*eps))
+            optimizer = optim.SGD(net.parameters(), lr=(lr-2*eps))
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
             outputs = net(inputs)
             loss4 = criterion(outputs, labels)
-            loss4.backward()
-            optimizer.step()
 
             net.undo_using_saved_model2()
             net.zero_grad()
 
             optimizer = optim.SGD(net.parameters(), lr = lr)
-            optimizer.step()
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -167,8 +126,13 @@ def make_iterations(net, lr):
             loss_wt_1 = criterion(outputs, labels)
 
             #learning rate
-            delta = (loss1 - loss2)/(torch.abs(loss3 + loss4 - 2*loss_wt_1) + sm_value)
-            #if (delta.data[0] > 0):
+            numerator = loss1 - loss2
+            denominator = loss3 + loss4 -2*loss_wt_1
+            if (denominator.data[0] == 0.0):
+                denominator += sm_value
+
+            delta = numerator/denominator
+            #print(np.mean(np.array(losses_vars[-10::])))
             lr = lr - 2*eps*delta.data[0]
             lr_values.append(lr)
 
@@ -178,46 +142,75 @@ def make_iterations(net, lr):
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 156))
                 print('learning rate:', lr)
-                print('Numerator: {}'.format((loss1-loss2).data[0]))
-                print('Denominator: {}'.format((loss3+loss4-2*loss_wt_1).data[0]))
+                print('Numerator: {}'.format(numerator.data[0]))
+                print('Denominator: {}'.format(denominator.data[0]))
                 print('-----------------------------')
                 running_loss_values.append(running_loss/156)
                 running_loss = 0.0
 
+            #getting the predictions on current training batch
+            if ((net(inputs).cpu()).data.numpy()).shape[0] == bs:
+                nbs += 1
+                preds = np.argmax(((net(inputs).cpu()).data.numpy()).reshape((bs,10)), axis=1)
+                partial_acc = sum(preds == (labels.cpu()).data.numpy())
+                acc += partial_acc
+
+        #accuracy on whole training set
+        acc /= (nbs*bs)
+        print('Training accuracy on this epoch: {}'.format(acc))
+        train_acc_values.append(acc)
+
+        acc = 0
+        nbs = 0
+
+        for i, data in enumerate(testloader, 0):
+
+            inputs, labels = data
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
+
+            #getting the predictions on current batch
+            if ((net(inputs).cpu()).data.numpy()).shape[0] == bs:
+                nbs += 1
+                preds = np.argmax(((net(inputs).cpu()).data.numpy()).reshape((bs,10)), axis=1)
+                partial_acc = sum(preds == (labels.cpu()).data.numpy())
+                acc += partial_acc
+
+        #accuracy on whole test set
+        acc /= (nbs*bs)
+        print('Test accuracy on this epoch: {}'.format(acc))
+        test_acc_values.append(acc) 
+
+    #save model
+    torch.save(net.state_dict(),'models/'+model_name)
+
     return lr_values, running_loss_values
-
-
-def make_update(net, lr):
-
-    net.conv1.weight.data -= net.conv1.weight.grad.data.float()*lr
-    net.conv1.bias.data -= net.conv1.bias.grad.data.float()*lr
-    
-    net.conv2.weight.data -= net.conv2.weight.grad.data.float()*lr
-    net.conv2.bias.data -= net.conv2.bias.grad.data.float()*lr
-
-    net.fc1.weight.data -= net.fc1.weight.grad.data.float()*lr
-    net.fc1.bias.data -= net.fc1.bias.grad.data.float()*lr
-
-    net.fc2.weight.data -= net.fc2.weight.grad.data.float()*lr
-    net.fc2.bias.data -= net.fc2.bias.grad.data.float()*lr
-
-    net.fc3.weight.data -= net.fc3.weight.grad.data.float()*lr
-    net.fc3.bias.data -= net.fc3.bias.grad.data.float()*lr
 
 
 if __name__ == '__main__':
 
     net = Net()
+    net.cuda()
 
     print(net)
 
-    lr_values, running_loss_values = make_iterations(net, lr_ini)
+    lr_values, running_loss_values, train_acc_values, test_acc_values = make_iterations(net, lr_ini)
 
     plt.plot(running_loss_values)
     plt.ylim((0,5))
-    plt.title('Loss over itrations')
+    plt.title('Loss over iterations')
     plt.show()
 
     plt.plot(lr_values)
     plt.ylim((0,20*lr_ini))
+    plt.title('Learning rate over iterations')
+    plt.show()
+
+    plt.plot(train_acc_values)
+    plt.ylim((0,1))
+    plt.title('Training accuracy over iterations')
+    plt.show()
+
+    plt.plot(test_acc_values)
+    plt.ylim((0,1))
+    plt.title('Test accuracy over iterations')
     plt.show()
