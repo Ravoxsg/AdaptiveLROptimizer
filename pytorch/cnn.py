@@ -49,7 +49,7 @@ class Net(nn.Module):
     def undo_using_saved_model2(self):
 
         for key in self.saved_model2.keys():
-            self.state_dict()[key] = self.saved_model2[key]
+            self.state_dict()[key].copy_(self.saved_model2[key])
 
     def __init__(self):
         super(Net, self).__init__()
