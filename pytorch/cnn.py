@@ -11,6 +11,16 @@ import torch.optim as optim
 
 class Net(nn.Module):
 
+    def __init__(self):
+        super(Net, self).__init__()
+        self.saved_model2 = {}
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+
     def save_model(self):
         self.saved_model = {
             "conv1.weight": self.conv1.weight.data.clone(),
@@ -24,11 +34,6 @@ class Net(nn.Module):
             "fc3.weight": self.fc3.weight.data.clone(),
             "fc3.bias": self.fc3.bias.data.clone()
         }
-    
-    def save_model2(self):
-        parameters = self.state_dict()
-        for key in parameters.keys():
-            self.saved_model2[key] = parameters[key].clone()
 
     def undo_using_saved_model(self):
         self.conv1.weight.data = self.saved_model['conv1.weight']
@@ -45,21 +50,6 @@ class Net(nn.Module):
         
         self.fc3.weight.data= self.saved_model['fc3.weight']
         self.fc3.bias.data= self.saved_model['fc3.bias']
-
-    def undo_using_saved_model2(self):
-
-        for key in self.saved_model2.keys():
-            self.state_dict()[key].copy_(self.saved_model2[key])
-
-    def __init__(self):
-        super(Net, self).__init__()
-        self.saved_model2 = {}
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
