@@ -8,15 +8,18 @@ import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import torch.optim as optim
 
+import resnet
+import cnn
 
 dtype = torch.cuda.FloatTensor
 
 #HYPER-PARAMETERS
-nb_epochs = 1
-bs = 32
-lr = 0.001
-criterion = nn.CrossEntropyLoss()
-model_name = 'basic_1.pt'
+nb_epochs = 20
+bs = 32 #batch size
+lr = 0.1 #learning rate
+criterion = nn.CrossEntropyLoss() #loss
+model = 'resnet' #model to use
+model_name = '{}_basic_{}_{}.pt'.format(model,nb_epochs,-int(np.log10(lr))) #model name
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -37,26 +40,6 @@ def imshow(img):
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.xlabel('Random images')
     plt.show()
-
-class Net(nn.Module):
-
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
-
-    def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
 
 def make_iterations(net, lr):
     running_loss_values = []
@@ -135,7 +118,11 @@ def make_iterations(net, lr):
 
 if __name__ == '__main__':
     
-    net = Net()
+    if model == 'resnet':
+        net = resnet.resnet18()
+    else:
+        net = cnn.Net()
+
     net.cuda()
 
     print(net)

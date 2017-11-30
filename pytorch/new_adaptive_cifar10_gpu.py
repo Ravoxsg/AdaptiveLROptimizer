@@ -11,6 +11,8 @@ import torch.optim as optim
 import resnet
 import cnn
 
+dtype = torch.cuda.FloatTensor
+
 
 #HYPER-PARAMETERS
 nb_epochs = 20
@@ -18,9 +20,9 @@ bs = 32 #batch size
 eps = 1e-5 #finite differences step
 sm_value = 1e-6 #denominator smoothing in the finite differences formula
 lr_ini = 0.001 #initial learning rate
-alpha = 0 #momentum coefficienton the LR
+alpha = 0 #momentum coefficient on the LR
 criterion = nn.CrossEntropyLoss() #loss
-model = 'cnn' #model to use
+model = 'resnet' #model to use
 model_name = '{}_adaptive_{}_{}_{}.pt'.format(model,eps,nb_epochs,-int(np.log10(lr_ini))) #model name
 
 transform = transforms.Compose(
@@ -61,7 +63,7 @@ def make_iterations(net, lr):
         for i, data in enumerate(trainloader, 0):
 
             inputs, labels = data
-            inputs, labels = Variable(inputs), Variable(labels)
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
 
             # zeroing gradient buffers
             net.zero_grad()
@@ -91,7 +93,7 @@ def make_iterations(net, lr):
             loss2 = criterion(outputs, labels)
 
             net.undo_using_saved_model()
-            net.zero_grad()                            
+            net.zero_grad()                        
 
             #loss3
             optimzer = optim.SGD(net.parameters(), lr=(lr+2*eps))
@@ -126,7 +128,7 @@ def make_iterations(net, lr):
             outputs = net(inputs)
             loss_wt_1 = criterion(outputs, labels)
 
-            #checking the losses
+            #checking out the losses
             # print("loss: {}".format(loss.data[0]))
             # print("loss1: {}".format(loss1.data[0]))
             # print("loss2: {}".format(loss2.data[0]))
@@ -142,6 +144,7 @@ def make_iterations(net, lr):
             finite_diff = numerator/denominator
 
             delta = alpha*delta - 2*eps*finite_diff.data[0]
+            #print(delta.data[0])
             lr = lr + delta
             lr_values.append(lr)
 
@@ -175,7 +178,7 @@ def make_iterations(net, lr):
         for i, data in enumerate(testloader, 0):
 
             inputs, labels = data
-            inputs, labels = Variable(inputs), Variable(labels)
+            inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
 
             #getting the predictions on current batch
             if ((net(inputs).cpu()).data.numpy()).shape[0] == bs:
@@ -201,7 +204,9 @@ if __name__ == '__main__':
         net = resnet.resnet18()
     else:
         net = cnn.Net()
-    
+
+    net.cuda()
+
     print(net)
 
     lr_values, running_loss_values, train_acc_values, test_acc_values = make_iterations(net, lr_ini)
