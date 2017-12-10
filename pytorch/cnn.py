@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 import torch.optim as optim
 
 
+#PARAMETERS
+n_classes = 10
+
 class Net(nn.Module):
 
     def __init__(self):
@@ -19,7 +22,7 @@ class Net(nn.Module):
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16 * 5 * 5, 120)
         self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
+        self.fc3 = nn.Linear(84, n_classes)
 
     def save_model(self):
         self.saved_model = {
