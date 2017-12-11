@@ -8,22 +8,20 @@ import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import torch.optim as optim
 
-import resnet
-import cnn
+from cnn import Net
+
 
 dtype = torch.cuda.FloatTensor
-
 
 #HYPER-PARAMETERS
 nb_epochs = 20
 bs = 32 #batch size
-eps = 1e-5 #finite differences step
-sm_value = 1e-6 #denominator smoothing in the finite differences formula
-lr_ini = 0.001 #initial learning rate
-alpha = 0 #momentum coefficient on the LR
-criterion = nn.CrossEntropyLoss() #loss
-model = 'resnet' #model to use
-model_name = '{}_adaptive_{}_{}_{}.pt'.format(model,eps,nb_epochs,-int(np.log10(lr_ini))) #model name
+eps = 1e-7 #epsilon value in the finite differences
+sm_value = 0 #additive smoothing parameter
+lr_ini = 0.1 #initial learning rate value
+alpha = 0 #momentum parameter
+criterion = nn.CrossEntropyLoss() #loss function
+model_name = 'cnn_adaptive_20.pt' #model name
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -58,95 +56,75 @@ def make_iterations(net, lr):
 
         acc = 0
         nbs = 0
-        losses_vars = []
 
         for i, data in enumerate(trainloader, 0):
 
             inputs, labels = data
             inputs, labels = Variable(inputs).type(dtype), Variable(labels).type(torch.cuda.LongTensor)
-
             # zeroing gradient buffers
             net.zero_grad()
-
-            # saving model
-            net.save_model()
             
-            #loss1
-            optimizer = optim.SGD(net.parameters(), lr = (lr+eps))
             outputs = net(inputs)
             loss = criterion(outputs, labels)
+            #loss backward prop (only once, want to use same gradients to update learning rate)
             loss.backward()
-            optimizer.step()
-            outputs1 = net(inputs)
-            loss1 = criterion(outputs1, labels)
+            # saving model
+            net.save_model2()
 
-            net.undo_using_saved_model()
-            net.zero_grad()
+            # #loss
+            # optimizer = optim.SGD(net.parameters(), lr=lr)
+            # optimizer.step()
+            # outputs = net(inputs)
+            # loss = criterion(outputs, labels)
+
+            # net.undo_using_saved_model2()
+
+            #loss1
+            optimizer = optim.SGD(net.parameters(), lr=lr+eps)
+            optimizer.step()
+            outputs_1 = net(inputs)
+            loss1 = criterion(outputs_1, labels)
+
+            net.undo_using_saved_model2()
 
             #loss2
-            optimizer = optim.SGD(net.parameters(), lr = (lr-eps))
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
+            optimizer = optim.SGD(net.parameters(), lr=lr-eps)
             optimizer.step()
-            outputs = net(inputs)
-            loss2 = criterion(outputs, labels)
+            outputs_2 = net(inputs)
+            loss2 = criterion(outputs_2, labels)
 
-            net.undo_using_saved_model()
-            net.zero_grad()                        
+            net.undo_using_saved_model2()
 
             #loss3
-            optimzer = optim.SGD(net.parameters(), lr=(lr+2*eps))
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimzer.step()
-            outputs = net(inputs)
-            loss3 = criterion(outputs, labels)
-
-            net.undo_using_saved_model()
-            net.zero_grad()
+            optimizer = optim.SGD(net.parameters(), lr=lr+2*eps)
+            optimizer.step()
+            outputs_3 = net(inputs)
+            loss3 = criterion(outputs_3, labels)
+            
+            net.undo_using_saved_model2()
 
             #loss4
-            optimizer = optim.SGD(net.parameters(), lr=(lr-2*eps))
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
+            optimizer = optim.SGD(net.parameters(), lr=lr-2*eps)
             optimizer.step()
-            outputs = net(inputs)
-            loss4 = criterion(outputs, labels)
+            outputs_4 = net(inputs)
+            loss4 = criterion(outputs_4, labels)
 
-            net.undo_using_saved_model()
-            net.zero_grad()
+            net.undo_using_saved_model2()
 
-            #new loss
-            optimizer = optim.SGD(net.parameters(), lr = lr)
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-            outputs = net(inputs)
-            loss_wt_1 = criterion(outputs, labels)
-
-            #checking out the losses
-            # print("loss: {}".format(loss.data[0]))
-            # print("loss1: {}".format(loss1.data[0]))
-            # print("loss2: {}".format(loss2.data[0]))
-            # print("loss3: {}".format(loss3.data[0]))
-            # print("loss4: {}".format(loss4.data[0]))
-            # print("loss_new: {}".format(loss_wt_1.data[0]))
+            #make actual update
 
             #learning rate
-            numerator = loss1 - loss2
-            denominator = loss3 + loss4 -2*loss_wt_1
-            if (denominator.data[0] == 0.0):
-                denominator += sm_value
-            finite_diff = numerator/denominator
-
+            finite_diff = (loss1 - loss2)/(loss3 + loss4 - 2*loss+sm_value)
+            #print(loss1-loss2)
+            #print(finite_diff)
             delta = alpha*delta - 2*eps*finite_diff.data[0]
-            #print(delta.data[0])
             lr = lr + delta
             lr_values.append(lr)
+
+            #weights
+            # make_update(net, lr)
+            optimizer = optim.SGD(net.parameters(), lr=lr)
+            optimizer.step()
 
             #keeping track of everything
             running_loss += loss.data[0]
@@ -154,9 +132,10 @@ def make_iterations(net, lr):
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 156))
                 print('learning rate:', lr)
-                print('Numerator: {}'.format(numerator.data[0]))
-                print('Denominator: {}'.format(denominator.data[0]))
-                print('-----------------------------')
+                num = loss1 - loss2 
+                print('Numerator: {}'.format(num.data[0]))
+                denom = loss3 + loss4 - 2*loss
+                print('Denominator: {}'.format(denom.data[0]))
                 running_loss_values.append(running_loss/156)
                 running_loss = 0.0
 
@@ -190,7 +169,7 @@ def make_iterations(net, lr):
         #accuracy on whole test set
         acc /= (nbs*bs)
         print('Test accuracy on this epoch: {}'.format(acc))
-        test_acc_values.append(acc) 
+        test_acc_values.append(acc)
 
     #save model
     torch.save(net.state_dict(),'models/'+model_name)
@@ -200,11 +179,7 @@ def make_iterations(net, lr):
 
 if __name__ == '__main__':
 
-    if model == 'resnet':
-        net = resnet.resnet18()
-    else:
-        net = cnn.Net()
-
+    net = Net()
     net.cuda()
 
     print(net)
@@ -217,6 +192,7 @@ if __name__ == '__main__':
     plt.show()
 
     plt.plot(lr_values)
+    plt.ylim((0,20*lr_ini))
     plt.title('Learning rate over iterations')
     plt.show()
 

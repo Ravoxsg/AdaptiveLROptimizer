@@ -4,6 +4,10 @@ import math
 import torch.utils.model_zoo as model_zoo
 
 
+#PARAMETERS
+n_classes = 10
+dropout = 0.5
+
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152']
 
@@ -94,7 +98,7 @@ class Bottleneck(nn.Module):
 
 class ResNet(nn.Module):
 
-    def __init__(self, block, layers, num_classes=10):
+    def __init__(self, block, layers, num_classes=n_classes):
         self.inplanes = 16
         super(ResNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1, bias=False)
@@ -192,16 +196,16 @@ class ResNet(nn.Module):
         x = self.maxpool(x)
 
         x = self.layer1(x)
-        d1 = nn.Dropout2d()
+        d1 = nn.Dropout2d(p=0)
         x = d1(x)
         x = self.layer2(x)
-        d2 = nn.Dropout2d()
+        d2 = nn.Dropout2d(p=dropout)
         x = d2(x)
         x = self.layer3(x)
-        d3 = nn.Dropout2d()
+        d3 = nn.Dropout2d(p=0)
         x = d3(x)
         x = self.layer4(x)
-        d4 = nn.Dropout2d()
+        d4 = nn.Dropout2d(p=dropout)
         x = d4(x)
 
         x = self.avgpool(x)
