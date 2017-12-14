@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  13 DEC 2017 01:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  13 DEC 2017 20:25
 entering extended mode
 **./final_report.tex
 (final_report.tex
@@ -833,43 +833,59 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 208.
+(hyperref)                removing `\epsilon' on input line 241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 241.
 
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 239.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 239.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
  (final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 239.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 239.
-Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: 6BD321680F5C606AB2B30A7AAC1C92A6;1451.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 239.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
+
+
+Package rerunfilecheck Warning: File `final_report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `final_report.out':
+(rerunfilecheck)             Before: 91678A35499DCECC95B7A6B3CE1A3172;1534
+(rerunfilecheck)             After:  842CDD9D5C11555AFE8122F2D93D518D;1534.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
  ) 
 Here is how much of TeX's memory you used:
- 8262 strings out of 493323
- 121603 string characters out of 3139065
+ 8265 strings out of 493323
+ 121639 string characters out of 3139065
  245777 words of memory out of 3000000
- 11520 multiletter control sequences out of 15000+200000
+ 11521 multiletter control sequences out of 15000+200000
  38731 words of font info for 127 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  31i,11n,43p,1133b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -882,9 +898,9 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (5 pages, 129434 bytes).
+Output written on final_report.pdf (6 pages, 132138 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 23217 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 23225 words of extra memory for PDF output out of 24883 (max. 10000000)
 
