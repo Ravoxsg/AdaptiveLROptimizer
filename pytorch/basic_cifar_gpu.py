@@ -17,13 +17,13 @@ dtype = torch.cuda.FloatTensor
 training_set_size = 50000
 test_set_size = 10000
 n_classes = resnet.n_classes
-nb_epochs = 30
+nb_epochs = 100
 bs = 256 #batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
 lr = 0.1 #learning rate
 criterion = nn.CrossEntropyLoss() #loss
 model = 'resnet' #model to use
-model_name = '{}_basic_adam_{}_{}.pt'.format(model,nb_epochs,-int(np.log10(lr))) #model name
+model_name = '{}_basic_{}_{}.pt'.format(model,nb_epochs,-int(np.log10(lr))) #model name
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -62,7 +62,7 @@ def make_iterations(net, lr):
     lr_values = []
     delta = 0
 
-    optimizer = optim.Adam(net.parameters(), lr=lr)
+    optimizer = optim.SGD(net.parameters(), lr=lr)
     net.zero_grad()
 
     for epoch in range(nb_epochs): # no of epochs
@@ -108,13 +108,14 @@ def make_iterations(net, lr):
                 acc += partial_acc
 
         #1-loss on whole training set
-        training_loss.append(long_running_loss/nfbs)
-        print('Training loss on this epoch: {}'.format(long_running_loss/(nfbs)))
+        train_loss = long_running_loss/nfbs
+        training_loss.append(train_loss)
+        print('Training loss on this epoch: {}'.format(train_loss))
 
         #2-accuracy on whole training set
-        acc /= (nfbs*bs)
-        print('Training accuracy on this epoch: {}'.format(acc))
-        train_acc_values.append(acc)
+        train_acc = acc/(nfbs*bs)
+        print('Training accuracy on this epoch: {}'.format(train_acc))
+        train_acc_values.append(train_acc)
 
         #Test set
 
@@ -138,13 +139,19 @@ def make_iterations(net, lr):
                 acc += partial_acc
 
         #3-loss on whole test set
-        test_loss.append(np.mean(np.array(t_losses)))
-        print('Test loss on this epoch: {}'.format(np.mean(np.array(t_losses))))
+        test_l = np.mean(np.array(t_losses))
+        test_loss.append(test_l)
+        print('Test loss on this epoch: {}'.format(test_l))
 
         #4-accuracy on whole test set
-        acc /= (nbs*bs)
-        print('Test accuracy on this epoch: {}'.format(acc))
-        test_acc_values.append(acc) 
+        test_acc = acc/(nbs*bs)
+        print('Test accuracy on this epoch: {}'.format(test_acc))
+        test_acc_values.append(test_acc) 
+
+        #save to csv
+        with open('results/basic_partial_results.csv','a') as file:
+            file.write(str(train_acc)+','+str(train_loss)+','+str(test_acc)+','+str(test_l)+','+'\n')
+            file.close()
 
     #save model
     torch.save(net.state_dict(),'models/'+model_name)

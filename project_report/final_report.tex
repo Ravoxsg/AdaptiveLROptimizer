@@ -162,36 +162,53 @@
   
   We first tried our adaptive learning rate schedule on linear regression applied to the Boston Housing dataset \emph{ref}. This dataset of 506 points with 13 features is suitable for a simple linear regression model. 
   
+  \subsubsection{Logistic regression}
+  
+  We also tried our method with multi-class logistic regression on the fashion MNIST dataset \emph{ref}. 
+  
   \subsubsection{Image classification with neural networks}
+  
+  \textbf{CIFAR-10}
   
   A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \emph{ref}. Deep neural networks are most suited for this task \emph{ref}. We use a LeNet with 5 layers and ResNet-18. 
   
   We first started by optimizing the LeNet model. We trained for different values of the learning rate, and 0.01 appeared to be the best choice. Thus, we compare the basic method with the second-order adaptive one starting at 0.01:\\
   
-  figure: losses, ResNet, starting LR 0.1
-
-  figure: accuracies, ResNet, starting LRL 0.1
+  figure: losses, LeNet, starting LR 0.01\\
+  figure: accuracies, LeNet, starting LRL 0.01
 
   (comments)
   
   In the ResNet paper by \emph{ref}, ResNet is optimized via the Adam optimizer. As we are using SGD here, we added dropout (on both the basic and adaptive methods of course) at the end of the second and fourth blocks of the network to prevent overfitting. We use a batch size of 256 for training.
   
-  figure: losses, ResNet, starting LR 0.1
-  
+  figure: losses, ResNet, starting LR 0.1\\
   figure: accuracies, ResNet, starting LRL 0.1
   
   In the adaptive schedule, all training metrics (training and test loss, training and test accuracies) are optimized faster. Typically, in the first epochs, training loss is twice lower in the adaptive version. The second-order method reaches its plateau sooner as well, after around xx epochs versus xx in the basic case, and then starts to overfit. Interestingly, the best performance achieved by the adaptive method is almost exactly equal to the one achieved by the basic method (and not better). 
   
-  It seems that a starting learning rate of 0.1 was a bit too high. Let's see what happens if we set the initial learning rate at 0.01:\\
+  Let's have a look at the variations of the learning rate for both networks:
   
-  figure: losses, ResNet, starting LR 0.01
+  figure: lr, LeNet, starting LR 0.01\\
+  figure: lr, ResNet, starting LR 0.1 1st case\\
+  figure: lr, ResNet, starting LR 0.1 2nd case
+  
+  Experiments on ResNet gave two kinds of results, that we both plotted here. It seems that a starting learning rate of 0.1 for ResNet was a bit too high, as we see it decrease its learning rate in every experiment. Let's see what happens if we set the initial learning rate at 0.01:\\
+  
+  figure: losses, ResNet, starting LR 0.01\\
+  figure: accuracies, ResNet, starting LR 0.01
+  figure: lr, ResNet, starting LR 0.01
+  
+  Once again, the adaptive schedule performs better than the basic one. This time, the initial learning rate seems to be too small, as the network increases its value until stabilizing it around xxx.\\
+  
+  \textbf{CIFAR-100}
+  
+  In this section, we increment difficulty by solving an image classification problem with 10 times more classes. After a line-search, the best learning rate to train ResNet-18 on this dataset seems to be 0.a
 
-  figure: accuracies, ResNet, starting LRL 0.01  
+  figure: losses, ResNet, starting LR 0.a\\
+  figure: accuracies, ResNet, starting LR 0.a\\
+  figure: lr, ResNet, starting LR 0.a
   
-  
-  \subsubsection{Logistic regression}
-  
-  We also tried our method with multi-class logistic regression on the fashion MNIST dataset \emph{ref}. 
+  Once again, we see ... This time the converged value of LR is ...  
   
   \section{Further exploration}
   
@@ -199,9 +216,25 @@
   
   In the previous experiments, we have seen the learning rate converge to a given value over time. This value seems to depend on both the model and the dataset. Now a question rises: given a dataset and a model, is this value the ideal learning rate ?
   
+  We started an adaptive learning rate training with the learning rate value that the ResNet model converged to in section 4.2.2 with 0.01 as a starting learning rate. 
+  
+  figure: losses, ResNet, starting LR 0.xx\\
+  figure: accuracies, ResNet, starting LR 0.xx\\
+  figure: lr, ResNet, starting LR 0.xx
+  
+  This time, the learning rate variations are of much weaker amplitude, as the this parameter is already in a ideal zone. 
+  
   \subsection{Momentum}
   
   \subsection{Getting loss values via a validation set}
+  
+  \subsection{Comparison with other optimizers}
+  
+  In the last few years, a popular variation of gradient descent named Adam \emph{ref} has progressively gained consensus among researchers for its efficiency. Thus, we compared our method with Adam and its default learning of $10^{-3}$. 
+
+  figure: losses, ResNet, starting LR 0.001\\
+  figure: accuracies, ResNet, starting LR 0.001\\
+  figure: lr, ResNet, starting LR 0.001
   
   \section{Limitations}
   
