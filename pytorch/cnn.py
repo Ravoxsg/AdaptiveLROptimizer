@@ -11,6 +11,7 @@ import torch.optim as optim
 
 #PARAMETERS
 n_classes = 10
+dropout = 0.5
 
 class Net(nn.Module):
 
@@ -59,10 +60,10 @@ class Net(nn.Module):
         x = self.pool(F.relu(self.conv2(x)))
         x = x.view(-1, 16 * 5 * 5)
         x = F.relu(self.fc1(x))
-        d1 = nn.Dropout(p=0.5)
+        d1 = nn.Dropout(p=dropout)
         x = d1(x)
         x = F.relu(self.fc2(x))
-        d2 = nn.Dropout(p=0.5)
+        d2 = nn.Dropout(p=dropout)
         x = d2(x)
         x = self.fc3(x)
         return x

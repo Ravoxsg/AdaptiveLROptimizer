@@ -20,7 +20,7 @@ THC_CACHING_ALLOCATOR=0
 training_set_size = 50000
 test_set_size = 10000
 n_classes = resnet.n_classes
-nb_epochs = 50
+nb_epochs = 60
 bs = 32 # batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
 eps = 1e-5 # finite differences step
@@ -46,10 +46,10 @@ if (n_classes == 10):
 
 if (n_classes == 100): 
     
-    trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=False, transform=transform)
+    trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=bs, shuffle=True, num_workers=2)
 
-    testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=False, transform=transform)
+    testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform)
     testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=2)
 
 val_len = int(len(trainloader)*0.2)
