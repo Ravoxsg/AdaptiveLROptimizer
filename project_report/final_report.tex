@@ -154,9 +154,7 @@
   \eta(t+1) = \eta(t) - 2\epsilon\frac{(f(\eta+\epsilon)-f(\eta-\epsilon))}{f(\eta+2\epsilon)+f(\eta-2\epsilon)-2f(\eta)}
   \end{equation}    
   Assuming a constant sign for the numerator, this formula means the following: when slightly increasing the learning rate corresponds to a lower loss than slightly reducing it, then the numerator is negative. In consequence, the learning rate increases, as pushing in the positive direction for the lerning rate seemed to help reducing the loss. However, reality is more complex as the sign of the denominator changes as well. 
-  
-  
-  \subsection{BFGS}
+
   
   \section{Experiments}
   
@@ -296,6 +294,10 @@
   Our version of gradient descent reduces the training loss much faster than in the fixed learning rate approach. The training loss sometimes gets down to very surprisingly low values, while the test loss does not reduce much more than in the basic model. Thus, our model seems to be more likely to overfit. We have tried to add dropout to the ResNet model, and that proved successful. 
   
   \section{Conclusion}
+  
+  In this paper, we have built a new way to learn the learning rate at each step using finite differences on the loss. We have tested it on a variety of convex and non-convex optimization tasks. 
+  
+  Based on our results, we believe that our method would be able to adapt a good learning rate at every iteration on convex problems. In the case of non-convex problems, we repeatedly observed faster training in the first few epochs. However, our adaptive model seems more inclined to overfit the training data, even though its test accuracy is always comparable to standard SGD performance, if not slightly better. Hence we believe that in neural network architectures, our model can be used initially for pretraining for a few epochs, and then continue with any other standard optimization technique to lead to faster convergence and be computationally more efficient.
   
   
   \bibliographystyle{plain}
