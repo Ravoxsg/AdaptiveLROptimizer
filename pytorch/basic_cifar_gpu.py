@@ -17,12 +17,12 @@ dtype = torch.cuda.FloatTensor
 training_set_size = 50000
 test_set_size = 10000
 n_classes = resnet.n_classes
-nb_epochs = 100
-bs = 256 #batch size
+nb_epochs = 60
+bs = 32 #batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
-lr = 0.1 #learning rate
+lr = 0.01 #learning rate
 criterion = nn.CrossEntropyLoss() #loss
-model = 'resnet' #model to use
+model = 'cnn' #model to use
 model_name = '{}_basic_{}_{}.pt'.format(model,nb_epochs,-int(np.log10(lr))) #model name
 
 transform = transforms.Compose(
@@ -150,7 +150,7 @@ def make_iterations(net, lr):
 
         #save to csv
         with open('results/basic_partial_results.csv','a') as file:
-            file.write(str(train_acc)+','+str(train_loss)+','+str(test_acc)+','+str(test_l)+','+'\n')
+            file.write(str(train_acc)+','+str(train_loss)+','+str(test_acc)+','+str(test_l)+'\n')
             file.close()
 
     #save model
