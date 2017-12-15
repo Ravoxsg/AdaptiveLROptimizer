@@ -178,6 +178,8 @@
   
   \textbf{CIFAR-10}
   
+  \emph{\textbf{Second-order method}}
+  
   A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \emph{ref}. Deep neural networks are most suited for this task \emph{ref}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \emph{ref}.
   
   We first started by optimizing the LeNet model. We trained it for different learning rate values, and 0.01 appeared to be the best choice. Thus, we compare the basic method with the second-order adaptive one starting at 0.01, using a batch-size of 32:\\
@@ -220,6 +222,10 @@
 \end{figure}
   
   The adaptive schedule performs consitently better than the basic one with testing accuracy being 10 to 15 points higher all the way around. This time, the initial learning rate seems to be too small, as the network increases its value until stabilizing it around 0.05, a value around the which it oscillated at the end of the previous training schedule.\\
+  
+  \emph{\textbf{First-order method}}
+  
+  Include the 3 figures of training on cifar-10 with first-order method
   
   \textbf{CIFAR-100}
   

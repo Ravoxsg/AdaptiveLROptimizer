@@ -11,8 +11,9 @@ from sklearn.datasets import fetch_mldata
 import time
 
 nb_epochs = 5
-meta_lr = 0.00001
+meta_lr = 0.000001
 batch_size = 32
+lr_ini = 0.001
 
 transform = transforms.ToTensor()
 
@@ -123,12 +124,13 @@ def train(lr):
             grad_t = grad_t.view(-1,1)
             grad_t_plus_1 = grad_t_plus_1.view(-1,1)
 
-            lr_grad = - torch.dot(grad_t, grad_t_plus_1)
+            lr_grad = - torch.mm(grad_t.view(1,-1), grad_t_plus_1)
 
             # print('lr grad is:', lr_grad)
 
             lr = lr - meta_lr*lr_grad.data[0]
 
+            lr = np.float64(lr.numpy()[0])
 
             # print('grad_t and grad_t_plus_1 size')
             # print(grad_t.size())
@@ -190,4 +192,5 @@ def train(lr):
         print('Test accuracy on this epoch: {}'.format(acc))
         test_acc_values.append(acc)
 
-train(1)
+if __name__ == '__main__':
+    train(lr_ini)
