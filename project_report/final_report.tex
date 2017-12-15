@@ -78,6 +78,20 @@
   
   \section{Related work}
   
+  Techniques for improving optimization of machine learning problems have a long history. The most commonly used technique is Stochastic Gradient Descent (SGD), combined with tricks like momentum \cite{polyak1964some}. While using SGD with complex neural network architectures, the non-convex nature of the problem makes it even harder to optimize. 
+  
+  Recently used alternatives to SGD include Contrastive Divergence \cite{hinton2006training}, Conjugate Gradients \cite{hinton2006reducing}, Stochastic Diagonal Levenberg-Marquardt \cite{lecun1998gradient}, and Hessian-free optimization \cite{martens2010deep}. All these techniques optimize the parameters of the model with the objective of minimizing a loss function. To the best of our knowledge, none of these techniques have been applied to optimize the learning rate at every iteration as we will discuss.
+  
+  In practice, techniques of the form $\frac{\eta}{\beta+t}$ that decay the learning rate over time are popular. The Adagrad method \cite{duchi2011adaptive} for instance divides the learning rate at each step by the norm of all previous gradients. Adadelta \cite{zeiler2012adadelta} is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Adam \cite{kingma2014adam} is built on top of these methods. It stores an exponentially decaying average of past squared gradients like Adadelta, and also keeps an exponentially decaying average of past gradients, similar to momentum.
+  
+  LeCun et al. \cite{lecun1998gradient} mention that optimal learning rate is $\eta_{opt} = \frac{1}{\lambda_{max}}$ where $\lambda_{max}$ is the maximum eigenvalue of the Hessian matrix of the loss function with regards to all parameters. With today's neural network architectures, computing the Hessian is a computationally very expensive operation. Lecun et al. avoid computing the Hessian via approximating its eigenvalues while Martens et al. \cite{martens2010deep} estimate the Hessian via finite differences.
+  
+  Tom Schaul et al. \cite{schaul2013no} model the expected loss after a SGD update to deduce the best learning rate update \emph{for each dimension}. To do so, they assume a diagonal Hessian matrix. In practice, this is evidently not the case, and they rely on observed samples of the gradient to update the learning rate.
+  
+  Similar to Martens et al. we use finite differences to approximate first order and second order derivatives of the loss function for updating the learning rate at every iteration.
+  
+  
+  
   \section{Adaptive learning rate}
   
   An adaptive learning gradient descent has the following schedule:\\
@@ -284,16 +298,8 @@
   \section{Conclusion}
   
   
-  \section*{References}
-  
-  \medskip
-  
-  \small
-  
-  [1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms
-  for connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and
-  T.K.\ Leen (eds.), {\it Advances in Neural Information Processing
-    Systems 7}, pp.\ 609--616. Cambridge, MA: MIT Press.
+  \bibliographystyle{plain}
+  \bibliography{ref}
   
   
   \end{document}

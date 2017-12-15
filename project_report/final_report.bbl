@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+
+\bibitem{duchi2011adaptive}
+John Duchi, Elad Hazan, and Yoram Singer.
+\newblock Adaptive subgradient methods for online learning and stochastic
+  optimization.
+\newblock {\em Journal of Machine Learning Research}, 12(Jul):2121--2159, 2011.
+
+\bibitem{hinton2006training}
+Geoffrey~E Hinton.
+\newblock Training products of experts by minimizing contrastive divergence.
+\newblock {\em Training}, 14(8), 2006.
+
+\bibitem{hinton2006reducing}
+Geoffrey~E Hinton and Ruslan~R Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em science}, 313(5786):504--507, 2006.
+
+\bibitem{kingma2014adam}
+Diederik Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem{lecun1998gradient}
+Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
+\newblock Gradient-based learning applied to document recognition.
+\newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
+
+\bibitem{martens2010deep}
+James Martens.
+\newblock Deep learning via hessian-free optimization.
+\newblock In {\em ICML}, volume~27, pages 735--742, 2010.
+
+\bibitem{polyak1964some}
+Boris~T Polyak.
+\newblock Some methods of speeding up the convergence of iteration methods.
+\newblock {\em USSR Computational Mathematics and Mathematical Physics},
+  4(5):1--17, 1964.
+
+\bibitem{schaul2013no}
+Tom Schaul, Sixin Zhang, and Yann LeCun.
+\newblock No more pesky learning rates.
+\newblock In {\em International Conference on Machine Learning}, pages
+  343--351, 2013.
+
+\bibitem{zeiler2012adadelta}
+Matthew~D Zeiler.
+\newblock Adadelta: an adaptive learning rate method.
+\newblock {\em arXiv preprint arXiv:1212.5701}, 2012.
+
+\end{thebibliography}
