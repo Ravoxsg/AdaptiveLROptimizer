@@ -11,7 +11,7 @@ from sklearn.datasets import fetch_mldata
 import time
 
 
-nb_epochs = 1
+nb_epochs = 5
 
 batch_size = 32
 

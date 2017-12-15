@@ -13,13 +13,13 @@ from cnn import Net
 
 nb_epochs = 20
 bs = 32
-eps = 1e-3
-sm_value = 1e-10
-lr_ini = 1
-meta_lr = 0.0001
+eps = 1e-5
+sm_value = 1e-6
+lr_ini = 0.01
+meta_lr = 0.01
 alpha = 0
 criterion = nn.CrossEntropyLoss()
-model_name = 'cnn_adaptive_fo_20_0_001.pt' #model name
+model_name = 'cnn_adaptive_fo_{}_{}_{}.pt'.format(eps,nb_epochs,-int(np.log10(lr_ini))) #model name
 
 
 transform = transforms.Compose(

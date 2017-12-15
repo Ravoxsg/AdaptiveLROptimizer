@@ -21,14 +21,14 @@ training_set_size = 50000
 test_set_size = 10000
 n_classes = resnet.n_classes
 nb_epochs = 50
-bs = 256 # batch size
+bs = 32 # batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
 eps = 1e-5 # finite differences step
 sm_value = 1e-6 # denominator smoothing in the finite differences formula
-lr_ini = 0.1 # initial learning rate
+lr_ini = 0.01 # initial learning rate
 alpha = 0 # momentum coefficient on the LR
 criterion = nn.CrossEntropyLoss() # loss
-model = 'resnet' # model to use
+model = 'cnn' # model to use
 model_name = '{}_adaptive_{}_{}_{}.pt'.format(model,eps,nb_epochs,-int(np.log10(lr_ini))) #model name
 use_val = False #whether or not to use validation set to get loss values
 

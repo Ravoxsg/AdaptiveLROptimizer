@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  13 DEC 2017 20:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  14 DEC 2017 19:47
 entering extended mode
 **./final_report.tex
 (final_report.tex
@@ -631,24 +631,48 @@ s
 \f@nch@O@olf=\skip62
 \f@nch@O@orf=\skip63
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+\Gread@gobject=\count119
+))
+\Gin@req@height=\dimen138
+\Gin@req@width=\dimen139
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\printlen\printlen.sty"
+Package: printlen 2009/09/03 v1.1a print lengths with units
+)
 (final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -719,24 +743,24 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 59.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 55.
-LaTeX Info: Redefining \pageref on input line 55.
-LaTeX Info: Redefining \nameref on input line 55.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
 
 (final_report.out) (final_report.out)
 \@outlinefile=\write3
 \openout3 = `final_report.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 55.
+LaTeX Info: Redefining \microtypecontext on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -750,14 +774,40 @@ Package microtype Info: No adjustment of character kerning.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-ptm.cfg"
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count121
+\scratchdimen=\dimen140
+\scratchbox=\box29
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen141
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks26
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 59.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 59.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -765,7 +815,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 59.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -774,21 +824,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 59.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 60.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 66.
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
@@ -796,99 +846,184 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 96--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 152.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 160.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 160.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 181.
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+<./figures/loss_lenet_0_01.png, id=135, 414.95026pt x 241.50224pt>
+File: ./figures/loss_lenet_0_01.png Graphic file (type png)
+
+<use ./figures/loss_lenet_0_01.png>
+Package pdftex.def Info: ./figures/loss_lenet_0_01.png used on input line 188.
+(pdftex.def)             Requested size: 200.0pt x 116.40248pt.
+
+<./figures/acc_lenet_0_01.png, id=137, 416.15475pt x 245.11575pt>
+File: ./figures/acc_lenet_0_01.png Graphic file (type png)
+
+<use ./figures/acc_lenet_0_01.png>
+Package pdftex.def Info: ./figures/acc_lenet_0_01.png used on input line 189.
+(pdftex.def)             Requested size: 200.0pt x 117.80382pt.
+
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 188--190
+[][] [] 
+ []
+
+<./figures/loss_resnet_0_1.png, id=138, 417.35925pt x 245.11575pt>
+File: ./figures/loss_resnet_0_1.png Graphic file (type png)
+
+<use ./figures/loss_resnet_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 198.
+(pdftex.def)             Requested size: 200.0pt x 117.46347pt.
+
+<./figures/acc_resnet_0_1.png, id=139, 418.56375pt x 247.52475pt>
+File: ./figures/acc_resnet_0_1.png Graphic file (type png)
+
+<use ./figures/acc_resnet_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 199.
+(pdftex.def)             Requested size: 200.0pt x 118.27042pt.
+
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 198--200
+[][] [] 
+ []
+
+[4 <./figures/loss_lenet_0_01.png> <./figures/acc_lenet_0_01.png> <./figures/lo
+ss_resnet_0_1.png> <./figures/acc_resnet_0_1.png>]
+<./figures/lr_lenet_0_01.png, id=151, 413.74574pt x 242.1045pt>
+File: ./figures/lr_lenet_0_01.png Graphic file (type png)
+
+<use ./figures/lr_lenet_0_01.png>
+Package pdftex.def Info: ./figures/lr_lenet_0_01.png used on input line 208.
+(pdftex.def)             Requested size: 200.0pt x 117.03264pt.
+
+<./figures/lr_resnet_0_1.png, id=152, 416.15475pt x 246.9225pt>
+File: ./figures/lr_resnet_0_1.png Graphic file (type png)
+
+<use ./figures/lr_resnet_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 209.
+(pdftex.def)             Requested size: 200.0pt x 118.67215pt.
+
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 208--210
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+
+ []
+
+<./figures/loss_resnet_0_01.png, id=153, 417.35925pt x 243.91125pt>
+File: ./figures/loss_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/loss_resnet_0_01.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 218.
+
+(pdftex.def)             Requested size: 130.0pt x 75.97643pt.
+
+<./figures/acc_resnet_0_01.png, id=154, 417.35925pt x 248.127pt>
+File: ./figures/acc_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/acc_resnet_0_01.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 219.
+(pdftex.def)             Requested size: 130.0pt x 77.2896pt.
+
+<./figures/lr_resnet_0_01.png, id=155, 415.5525pt x 247.52475pt>
+File: ./figures/lr_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/lr_resnet_0_01.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 220.
+(pdftex.def)             Requested size: 130.0pt x 77.43437pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
+Underfull \vbox (badness 4981) has occurred while \output is active []
 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
+ [5 <./figures/lr_lenet_0_01.png> <./figures/lr_resnet_0_1.png> <./figures/loss
+_resnet_0_01.png> <./figures/acc_resnet_0_01.png> <./figures/lr_resnet_0_01.png
+>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 241.
+(hyperref)                removing `\epsilon' on input line 268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 241.
+(hyperref)                removing `math shift' on input line 268.
 
-[5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+[6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
  (final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
-
-
-Package rerunfilecheck Warning: File `final_report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `final_report.out':
-(rerunfilecheck)             Before: 91678A35499DCECC95B7A6B3CE1A3172;1534
-(rerunfilecheck)             After:  842CDD9D5C11555AFE8122F2D93D518D;1534.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package rerunfilecheck Info: File `final_report.out' has not changed.
+(rerunfilecheck)             Checksum: 842CDD9D5C11555AFE8122F2D93D518D;1534.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
  ) 
 Here is how much of TeX's memory you used:
- 8265 strings out of 493323
- 121639 string characters out of 3139065
- 245777 words of memory out of 3000000
- 11521 multiletter control sequences out of 15000+200000
- 38731 words of font info for 127 fonts, out of 3000000 for 9000
+ 9166 strings out of 493323
+ 134807 string characters out of 3139065
+ 261201 words of memory out of 3000000
+ 12361 multiletter control sequences out of 15000+200000
+ 41889 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,11n,43p,1133b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,48p,1174b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
@@ -896,11 +1031,12 @@ pe1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (6 pages, 132138 bytes).
+ Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/times/utmri8a.pfb>
+Output written on final_report.pdf (7 pages, 283344 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
- 23225 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 23782 words of extra memory for PDF output out of 24883 (max. 10000000)
 
