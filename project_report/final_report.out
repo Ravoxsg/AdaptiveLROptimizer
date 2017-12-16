@@ -3,21 +3,20 @@
 \BOOKMARK [1][-]{section.3}{Adaptive learning rate}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{First-order method}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{Second-order method}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{BFGS}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Experiments}{}% 7
-\BOOKMARK [2][-]{subsection.4.1}{Practical considerations}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Linear regression}{subsection.4.2}% 10
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Logistic regression}{subsection.4.2}% 11
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Image classification with neural networks}{subsection.4.2}% 12
-\BOOKMARK [1][-]{section.5}{Further exploration}{}% 13
-\BOOKMARK [2][-]{subsection.5.1}{Learning the learning rate}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Momentum}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.3}{Getting loss values via a validation set}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.4}{Comparison with other optimizers}{section.5}% 17
-\BOOKMARK [1][-]{section.6}{Limitations}{}% 18
-\BOOKMARK [2][-]{subsection.6.1}{Choice of step }{section.6}% 19
-\BOOKMARK [2][-]{subsection.6.2}{Choice of the initial learning rate}{section.6}% 20
-\BOOKMARK [2][-]{subsection.6.3}{Cost of loss computations}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.4}{Overfitting}{section.6}% 22
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 23
+\BOOKMARK [1][-]{section.4}{Experiments}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Practical considerations}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Linear regression}{subsection.4.2}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Logistic regression}{subsection.4.2}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Image classification with neural networks}{subsection.4.2}% 11
+\BOOKMARK [1][-]{section.5}{Further exploration}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Learning the learning rate}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Momentum}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Getting loss values via a validation set}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.4}{Comparison with other optimizers}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Limitations}{}% 17
+\BOOKMARK [2][-]{subsection.6.1}{Choice of step }{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.2}{Choice of the initial learning rate}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.3}{Cost of loss computations}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.4}{Overfitting}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 22
