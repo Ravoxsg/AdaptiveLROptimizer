@@ -1,10 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{duchi2011adaptive}
 John Duchi, Elad Hazan, and Yoram Singer.
 \newblock Adaptive subgradient methods for online learning and stochastic
   optimization.
 \newblock {\em Journal of Machine Learning Research}, 12(Jul):2121--2159, 2011.
+
+\bibitem{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 770--778, 2016.
 
 \bibitem{hinton2006training}
 Geoffrey~E Hinton.
@@ -20,6 +26,12 @@ Geoffrey~E Hinton and Ruslan~R Salakhutdinov.
 Diederik Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.
 \newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  1097--1105, 2012.
 
 \bibitem{lecun1998gradient}
 Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.

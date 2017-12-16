@@ -43,17 +43,18 @@
   % author name.
   
   \author{
-  	Satya Krishna Gorti*\\
-  	University of Toronto\\
-  	27 King's College Circle\\
-  	Toronto, ON M5S\\
-  	satyag@cs.toronto.edu
-  	\And
 	Mathieu Ravaut* \\ 
 	University of Toronto \\
+	CentraleSupelec\\
 	27 King's College Circle\\
 	Toronto, ON M5S\\
-	mravox@cs.toronto.edu \\
+	mravox@cs.toronto.edu 
+	\And
+  	Satya Krishna Gorti*\\
+	University of Toronto\\
+	27 King's College Circle\\
+	Toronto, ON M5S\\
+	satyag@cs.toronto.edu	
 }
   
   \begin{document}
@@ -70,11 +71,16 @@
   \thispagestyle{equalc}
   \section{Introduction}
   
-  In the past decades, gradient descent has been widely adopted to optimize the loss function in machine learning algorithms \emph{ref}. Lately, the machine learning community has also used the stochastic gradient descent alternative \emph{ref}, which processes input data via batches. Gradient descent can be used in any dimension, and presents the advantage of being easy to understand and inexpensive to compute. Under certain assumptions on the loss function (such as convexity), gradient descent is guaranteed to converge to the minimum of the function. Moreover, stochastic gradient descent has proven to be very efficient even in situations where the loss functions is not convex, as is mostly the case with modern deep neural networks \emph{ref}. Other methods such as Newton's method guarantee a much faster convergence, but are typically very expensive. Newton's method for instance requires to compute the inverse of the Hessian matrix of the loss functions with regards to all parameters, which is impossible with today's hardware and today's deep networks with millions of parameters \emph{ref}. \\
+  In the past decades, gradient descent has been widely adopted to optimize the loss function in machine learning algorithms. Lately, the machine learning community has also used the stochastic gradient descent alternative, which processes input data via batches. Gradient descent can be used in any dimension, and presents the advantage of being easy to understand and inexpensive to compute. Under certain assumptions on the loss function (such as convexity), gradient descent is guaranteed to converge to the minimum of the function, \emph{with a carefully chosen learning rate} $\eta$. Moreover, stochastic gradient descent has proven to be very efficient even in situations where the loss functions is not convex, as is mostly the case with modern deep neural networks. Other methods such as Newton's method guarantee a much faster convergence, but are typically very expensive. Newton's method for instance requires to compute the inverse of the Hessian matrix of the loss functions with regards to all parameters, which is impossible with today's hardware and today's deep networks with millions of parameters \cite{krizhevsky2012imagenet}. \\
   
-  The quality of a gradient descent heavily depends on the choice of the learning rate $\eta$. A too high learning rate will see the loss function jumping around the direction of steepest descent, and eventually diverge. While a very low learning rate guarantees non-divergence, convergence will be very slow, and the loss function might get stuck in a local minimum. Choosing an ideal learning rate requires an intuition of the problem. Typically, researchers would start by performing a line-search over a set of different orders of magnitude of learning rates, but this is long and costly. Besides, a line-search usually assumes a fixed learning rate over time, as doing one line-search per iteration would require exponential computation cost. Usually, we see researchers setting the learning rate to an initial value then decrasing it one or a few items after training has progressed \emph{ref}.\\
+  The quality of a gradient descent heavily depends on the choice of the learning rate $\eta$. A too high learning rate will see the loss function jumping around the direction of steepest descent, and eventually diverge. While a very low learning rate guarantees non-divergence, convergence will be very slow, and the loss function might get stuck in a local minimum. Choosing an ideal learning rate requires an intuition of the problem. Typically, researchers would start by performing a random search or a line-search over a set of different orders of magnitude of learning rates, but this is long and costly. Besides, a line-search usually assumes a fixed learning rate over time, as doing one line-search per iteration would require exponential computation cost. Usually, we see researchers setting the learning rate to an initial value then decreasing it one or a few items after training has progressed.\\
   
-  In this paper, we propose to automatically find the learning rate at each epoch. We still need to input an initial value, but at each iteration, our model will find a learning rate that optimizes best the loss function at this point of learning. We explore a first-order method and a second-order one to do so, with a strong emphasis on the latter. Our method could be applied to any machine learning algorithm using gradient descent. We show faster convergence on a variety of tasks and models. \\ 
+  In this paper, we propose to automatically find the learning rate at each epoch. We still need to input an initial value, but at each iteration, our model will find a learning rate that optimizes best the loss function at this point of learning. We explore a first-order method and a second-order one to do so, with a strong emphasis on the latter. Our method could be applied to any machine learning algorithm using gradient descent. We show faster initial convergence on a variety of tasks and models, including:
+  \begin{itemize}
+  	\item Linear regression on the Boston Housing Prices dataset
+  	\item Logistic regression on MNIST
+  	\item Image classification with neural networks on Cifar-10 and Cifar-100
+  \end{itemize} 
   
   \section{Related work}
   
@@ -84,11 +90,11 @@
   
   In practice, techniques of the form $\frac{\eta}{\beta+t}$ that decay the learning rate over time are popular. The Adagrad method \cite{duchi2011adaptive} for instance divides the learning rate at each step by the norm of all previous gradients. Adadelta \cite{zeiler2012adadelta} is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Adam \cite{kingma2014adam} is built on top of these methods. It stores an exponentially decaying average of past squared gradients like Adadelta, and also keeps an exponentially decaying average of past gradients, similar to momentum.
   
-  LeCun et al. \cite{lecun1998gradient} mention that optimal learning rate is $\eta_{opt} = \frac{1}{\lambda_{max}}$ where $\lambda_{max}$ is the maximum eigenvalue of the Hessian matrix of the loss function with regards to all parameters. With today's neural network architectures, computing the Hessian is a computationally very expensive operation. Lecun et al. avoid computing the Hessian via approximating its eigenvalues while Martens et al. \cite{martens2010deep} estimate the Hessian via finite differences.
+  LeCun et al. \cite{lecun1998gradient} mention that the optimal learning rate is $\eta_{opt} = \frac{1}{\lambda_{max}}$ where $\lambda_{max}$ is the maximum eigenvalue of the Hessian matrix of the loss function with regards to all parameters. With today's neural network architectures, computing the Hessian is a computationally very expensive operation. Lecun et al. avoid computing the Hessian via approximating its eigenvalues while Martens et al. \cite{martens2010deep} estimate the Hessian via finite differences.
   
   Tom Schaul et al. \cite{schaul2013no} model the expected loss after a SGD update to deduce the best learning rate update \emph{for each dimension}. To do so, they assume a diagonal Hessian matrix. In practice, this is evidently not the case, and they rely on observed samples of the gradient to update the learning rate.
   
-  Similar to Martens et al. we use finite differences to approximate first order and second order derivatives of the loss function for updating the learning rate at every iteration.
+  Similar to Martens et al. \cite{martens2010deep} we use finite differences to approximate first order and second order derivatives of the loss function for updating the learning rate at every iteration.
   
   
   
@@ -103,12 +109,12 @@
   
   \subsection{First-order method}
   
-  The first-order method consists in doing gradient descent on the learning rate. Let's introduce a function that will be useful in the following:\\
+  The first-order method consists in doing gradient descent on the learning rate. Let us introduce a function that will be useful in the following:\\
   \begin{align}
   f : R^{n} &\rightarrow R\\
   \eta &\rightarrow L(w(t)-\eta g(t))
   \end{align}
-  n corresponds to the number of learnable parameters in the model. f represents what the loss would be if we were to perform a gradient descent update with the given $\eta$.\\
+  $n$ corresponds to the number of trainable parameters in the model. f represents what the loss would be if we were to perform a gradient descent update with the given learning rate $\eta$.\\
   The first-order method is written:\\
   \begin{align}
   w(t+1) &= w(t) -\eta(t)g(t)\\
@@ -116,9 +122,9 @@
   \end{align} 
   This method introduces a new "meta" learning rate $\alpha$. It has the advantage of being light in cost as we only need gradients (first-order derivatives) of the loss function L. Indeed:\\
   \begin{equation}
-  \forall \eta, f'(\eta) = -g(t)^{T}.\nabla L(w(t)-\eta g(t)) \text{ where . is the dot product in dimension n}
+  \forall \eta, f'(\eta) = -g(t)^{T}.\nabla L(w(t)-\eta g(t)) \text{ where . is the dot product in dimension $n$}
   \end{equation}
-  In particular, at the value of $\eta$ used to get $w(t+1)$, we get:\\
+  In particular, at the value of $\eta$ used to get $w(t+1)$, we have:\\
   \begin{equation}
   f'(\eta(t)) = -g(t)^{T}.g(t+1)
   \end{equation}
@@ -131,7 +137,7 @@
   \eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))}
   \end{align}
   Now all the learning only depends on the loss, there is no more constant value to choose. \\
-  However, the second derivative of f requires building the loss Hessian matrix:\\
+  However, the second derivative of f requires building the loss Hessian matrix $H_{L}$:\\
   \begin{equation}
   \forall \eta, f''(\eta) = g(t)^{T}.H_{L}(w(t)-\eta g(t))
   \end{equation}
@@ -167,16 +173,16 @@
   \end{align}
   A typical value of $\delta$ is $10^{-6}$. \\
   
-  Besides, when updating the loss and the learning rate, one should be very careful about the order of the operations. Let's say that we just perform the \emph{k-th} iteration. We have a loss value $L^{(k)}$ and a learning rate value $\eta^{(k)}$. Then the \emph{(k+1)-th} step of our algorithm is written as follows:\\
+  Besides, when updating the loss and the learning rate, one should be very careful about the order of the operations. At the \emph{k-th} iteration, we have a loss value $L^{(k)}$ and a learning rate value $\eta^{(k)}$. Then the \emph{(k+1)-th} step of our algorithm is written as follows:\\
   \begin{itemize}
   	\item Get the five loss values $f(\eta^{(k)}+\epsilon)$, $f(\eta^{(k)}-\epsilon)$, $f(\eta^{(k)}+2\epsilon)$, $f(\eta^{(k)}-2\epsilon)$ and $f(\eta^{(k)})$
   	\item $L^{(k+1)} \leftarrow f(\eta^{(k)})$
-  	\item $\eta^{(k+1)} \leftarrow \eta^{(k)} -2\epsilon...$
+  	\item $\eta^{(k+1)} \leftarrow \eta^{(k)} -2\epsilon\frac{(f(\eta^{(k)}+\epsilon)-f(\eta^{(k)}-\epsilon))}{f(\eta^{(k)}+2\epsilon)+f(\eta^{(k)}-2\epsilon)-2f(\eta^{(k)})}$
   \end{itemize}
   
   \subsection{Results} 
   
-  We compare our second-order method to a standard method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method} That means, the basic method uses plain stochastic gradient descent as optimizer. The first order method was quite unstable. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach. 
+  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training, except to prevent massive overfitting in some cases.  
  
   \subsubsection{Linear regression}
   
@@ -192,39 +198,45 @@
   
   \emph{\textbf{Second-order method}}
   
-  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \emph{ref}. Deep neural networks are most suited for this task \emph{ref}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \emph{ref}.
+  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \emph{ref}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}.
   
-  We first started by optimizing the LeNet model. We trained it for different learning rate values, and 0.01 appeared to be the best choice. Thus, we compare the basic method with the second-order adaptive one starting at 0.01, using a batch-size of 32:\\
+  We first started by optimizing the LeNet model. We trained it for different learning rate values, and 0.01 appeared to be the best choice. As a plain SGD optimization without momentum tended to overfit, we introduced two dropout layers after the first two fully-connected layers. Thus, we compare the basic method with the second-order adaptive one starting at 0.01, using a batch-size of 32:\\
   
   \begin{figure}[!h]
-  	\includegraphics[width=200pt]{loss_lenet_0_01.png}
-  	\includegraphics[width=200pt]{acc_lenet_0_01.png}
+  	\includegraphics[width=200pt]{loss_lenet_d_0_01.png}
+  	\includegraphics[width=200pt]{acc_lenet_d_0_01.png}
   	\caption{Second-order adaptive learning rate and basic method with LeNet, initial learning rate 0.01}
   \end{figure}
 
-  From here we can notice three things. First, training is faster with the adaptive method. Looking at the first epochs shows that the training and test losses get optimized much quicklier than in the basic case. Then, given the values that the training loss and accuracy reach, the adaptive method is overfitting. Finally, even with this overfitting, the adaptive method plateaus around the same test accuracy than the basic method. This maximum test accuracy is reached less than 10 epochs, versus around 30 epochs for the basic method. 
-  
-  In the ResNet paper by \emph{ref}, ResNet is optimized via the Adam optimizer. As we are using SGD here, we added dropout (on both the basic and adaptive methods of course) at the end of the second and fourth blocks of the network to prevent overfitting. We use a batch size of 256 for training.
+  From here we can notice four things:\\
+  \begin{itemize}
+  	\item The adaptive method is noisier than simple SGD.
+  	\item Training is faster with the adaptive method. Looking at the first epochs shows that the training and test losses get optimized much quicklier than in the basic case.
+  	\item Given the values that the training loss and accuracy reach, the adaptive method is probably overfitting (and the basic method seems to be on its way to overfit).
+  	\item Even with this overfitting, the adaptive method plateaus around the same test accuracy (59\%) than the basic method. This maximum test accuracy is reached in less than 10 epochs, versus around 35 epochs for the basic method. 
+  \end{itemize}
+
+  We now look at the performance of ResNet-18:
   
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_resnet_0_1.png}
 	\includegraphics[width=200pt]{acc_resnet_0_1.png}
 	\caption{Second-order adaptive learning rate and basic method with ResNet, initial learning rate 0.1}
-\end{figure}
+  \end{figure}
   
-  Once again, in the adaptive schedule, all training metrics (training and test loss, training and test accuracies) are optimized faster. Typically, in the first epochs, training loss is twice lower in the adaptive version. The second-order method reaches its plateau sooner as well, after around 15 epochs versus 40 in the basic case, and then starts to overfit. Overfitting here is slightly weaker than with LeNet, probably thanks to the dropout layers. Interestingly, this time the best performance achieved by the adaptive method seems to be slightly better (74.4\%) than the best one achieved by the basic method (71\%).
+  Once again, in the adaptive schedule, all training metrics (training and test loss, training and test accuracies) are optimized faster. Typically, in the first epochs, training loss is twice lower in the adaptive version. The second-order method reaches its plateau sooner as well, after around 15 epochs versus 40 in the basic case, and then starts to overfit. Interestingly, this time the best performance achieved by the adaptive method seems to be slightly better (74.4\%) than the best one achieved by the basic method (71\%).
   
-  Let's have a look at the variations of the learning rate for both networks:
+  We now explore the variations of the learning rate for both networks:
   
   \begin{figure}[!h]
-	\includegraphics[width=200pt]{lr_lenet_0_01.png}
+	\includegraphics[width=200pt]{lr_lenet_d_0_01.png}
 	\includegraphics[width=200pt]{lr_resnet_0_1.png}
 	\caption{Learning rate variations in the two previous trainings}
 \end{figure}
   
-  For LeNet, it seems that the initial learning rate value was a bit too low. The network increases it to boost convergence, then decreases it as training reaches its converges. With ResNet, it seems that a starting learning rate of 0.1 was a bit too high, as we see it decrease its learning rate. Something interesting starts happening here after 30 epochs, as the learning rate starts oscillating. As the loss value stops changing, it is probable that the denominator in the learning rate updates gets very small.\\
+  For LeNet, it seems that the initial learning rate value was a bit too low. The network increases it to boost convergence, but struggles to stabilize to a fixed zone. With ResNet, it seems that a starting learning rate of 0.1 was a bit too high, as we see it decrease its learning rate. Something interesting starts happening here after 30 epochs, as the learning rate starts oscillating. As the loss value stops changing because convergence is reached, it is probable that the denominator in the learning rate updates gets very small.\\
   
-  Let's see what happens if we set the initial learning rate at 0.01 for the ResNet model:\\
+  That leads u to see what happens if we set the initial learning rate at 0.01 for the ResNet model:\\
   
   \begin{figure}[!h]
 	\includegraphics[width=130pt]{loss_resnet_0_01.png}
@@ -257,11 +269,14 @@
   
   We started an adaptive learning rate training with the learning rate value that the ResNet model converged to in section 4.2.2 with 0.01 as a starting learning rate. 
   
-  figure: losses, ResNet, starting LR 0.xx\\
-  figure: accuracies, ResNet, starting LR 0.xx\\
-  figure: lr, ResNet, starting LR 0.xx
+  \begin{figure}[!h]
+	\includegraphics[width=130pt]{loss_resnet_0_05.png}
+	\includegraphics[width=130pt]{acc_resnet_0_05.png}
+	\includegraphics[width=130pt]{lr_resnet_0_05.png}
+	\caption{Second-order adaptive learning rate and basic method with ResNet, initial learning rate 0.51}
+\end{figure}
   
-  This time, the learning rate variations are of much weaker amplitude, as the this parameter is already in a ideal zone. 
+  The trends noticed in the previous training are confirmed. This time, the learning rate variations are of much weaker amplitude, as this parameter is already in a ideal zone. The network slightly raises its learning rate to kick off training at first, then lowly decreases it over time, as training converges. 
   
   \subsection{Momentum}
   
@@ -297,8 +312,9 @@
   
   In this paper, we have built a new way to learn the learning rate at each step using finite differences on the loss. We have tested it on a variety of convex and non-convex optimization tasks. 
   
-  Based on our results, we believe that our method would be able to adapt a good learning rate at every iteration on convex problems. In the case of non-convex problems, we repeatedly observed faster training in the first few epochs. However, our adaptive model seems more inclined to overfit the training data, even though its test accuracy is always comparable to standard SGD performance, if not slightly better. Hence we believe that in neural network architectures, our model can be used initially for pretraining for a few epochs, and then continue with any other standard optimization technique to lead to faster convergence and be computationally more efficient.
+  Based on our results, we believe that our method would be able to adapt a good learning rate at every iteration on convex problems. In the case of non-convex problems, we repeatedly observed faster training in the first few epochs. However, our adaptive model seems more inclined to overfit the training data, even though its test accuracy is always comparable to standard SGD performance, if not slightly better. Hence we believe that in neural network architectures, our model can be used initially for pretraining for a few epochs, and then continue with any other standard optimization technique to lead to faster convergence and be computationally more efficient, and perhaps reach a new highest accuracy on the given problem. 
   
+  Moreover, the learning rate that our algorithm converges to suggests an ideal learning rate for the given training task. One could use our method to tune the learning rate of a standard neural network (using Adam for instance), giving a more precise value than with line-search or random search.
   
   \bibliographystyle{plain}
   \bibliography{ref}

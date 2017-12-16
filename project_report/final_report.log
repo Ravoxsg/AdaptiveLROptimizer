@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  15 DEC 2017 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  15 DEC 2017 18:24
 entering extended mode
 **./final_report.tex
 (final_report.tex
@@ -658,21 +658,21 @@ Package: printlen 2009/09/03 v1.1a print lengths with units
 (final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 60.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -743,7 +743,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 59.
+Package hyperref Info: Link coloring OFF on input line 60.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -752,15 +752,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 60.
+LaTeX Info: Redefining \pageref on input line 60.
+LaTeX Info: Redefining \nameref on input line 60.
 
 (final_report.out) (final_report.out)
 \@outlinefile=\write3
 \openout3 = `final_report.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 59.
+LaTeX Info: Redefining \microtypecontext on input line 60.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -801,13 +801,13 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 66.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 66.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -815,7 +815,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -824,222 +824,262 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 66.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 67.
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
-[1
+
+Underfull \vbox (badness 1776) has occurred while \output is active []
+
+ [1
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--113
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 172.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 193.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
-<./figures/loss_lenet_0_01.png, id=152, 414.95026pt x 241.50224pt>
-File: ./figures/loss_lenet_0_01.png Graphic file (type png)
 
-<use ./figures/loss_lenet_0_01.png>
-Package pdftex.def Info: ./figures/loss_lenet_0_01.png used on input line 200.
-(pdftex.def)             Requested size: 200.0pt x 116.40248pt.
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
-<./figures/acc_lenet_0_01.png, id=154, 416.15475pt x 245.11575pt>
-File: ./figures/acc_lenet_0_01.png Graphic file (type png)
+ []
 
-<use ./figures/acc_lenet_0_01.png>
-Package pdftex.def Info: ./figures/acc_lenet_0_01.png used on input line 201.
-(pdftex.def)             Requested size: 200.0pt x 117.80382pt.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 200--202
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 199.
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+<./figures/loss_lenet_d_0_01.png, id=155, 415.5525pt x 240.9pt>
+File: ./figures/loss_lenet_d_0_01.png Graphic file (type png)
+
+<use ./figures/loss_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/loss_lenet_d_0_01.png used on input line 206
+.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+
+<./figures/acc_lenet_d_0_01.png, id=157, 415.5525pt x 240.9pt>
+File: ./figures/acc_lenet_d_0_01.png Graphic file (type png)
+
+<use ./figures/acc_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/acc_lenet_d_0_01.png used on input line 207.
+
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 206--208
 [][] [] 
  []
 
-[4 <./figures/loss_lenet_0_01.png> <./figures/acc_lenet_0_01.png>]
-<./figures/loss_resnet_0_1.png, id=163, 417.35925pt x 245.11575pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+
+ []
+
+[4] <./figures/loss_resnet_0_1.png, id=167, 417.35925pt x 245.11575pt>
 File: ./figures/loss_resnet_0_1.png Graphic file (type png)
 
 <use ./figures/loss_resnet_0_1.png>
-Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 210.
+Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 222.
 (pdftex.def)             Requested size: 200.0pt x 117.46347pt.
 
-<./figures/acc_resnet_0_1.png, id=164, 418.56375pt x 247.52475pt>
+<./figures/acc_resnet_0_1.png, id=168, 418.56375pt x 247.52475pt>
 File: ./figures/acc_resnet_0_1.png Graphic file (type png)
 
 <use ./figures/acc_resnet_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 211.
+Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 223.
 (pdftex.def)             Requested size: 200.0pt x 118.27042pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 210--212
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 222--224
 [][] [] 
  []
 
-<./figures/lr_lenet_0_01.png, id=165, 413.74574pt x 242.1045pt>
-File: ./figures/lr_lenet_0_01.png Graphic file (type png)
+<./figures/lr_lenet_d_0_01.png, id=169, 415.5525pt x 240.9pt>
+File: ./figures/lr_lenet_d_0_01.png Graphic file (type png)
 
-<use ./figures/lr_lenet_0_01.png>
-Package pdftex.def Info: ./figures/lr_lenet_0_01.png used on input line 220.
-(pdftex.def)             Requested size: 200.0pt x 117.03264pt.
+<use ./figures/lr_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/lr_lenet_d_0_01.png used on input line 232.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/lr_resnet_0_1.png, id=166, 416.15475pt x 246.9225pt>
+<./figures/lr_resnet_0_1.png, id=170, 416.15475pt x 246.9225pt>
 File: ./figures/lr_resnet_0_1.png Graphic file (type png)
 
 <use ./figures/lr_resnet_0_1.png>
-Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 221.
+Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 233.
 (pdftex.def)             Requested size: 200.0pt x 118.67215pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 220--222
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 232--234
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
-<./figures/loss_resnet_0_01.png, id=167, 417.35925pt x 243.91125pt>
+<./figures/loss_resnet_0_01.png, id=171, 417.35925pt x 243.91125pt>
 File: ./figures/loss_resnet_0_01.png Graphic file (type png)
 
 <use ./figures/loss_resnet_0_01.png>
-Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 230.
+Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 242.
 
 (pdftex.def)             Requested size: 130.0pt x 75.97643pt.
 
-<./figures/acc_resnet_0_01.png, id=168, 417.35925pt x 248.127pt>
+<./figures/acc_resnet_0_01.png, id=172, 417.35925pt x 248.127pt>
 File: ./figures/acc_resnet_0_01.png Graphic file (type png)
 
 <use ./figures/acc_resnet_0_01.png>
-Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 231.
+Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 243.
 (pdftex.def)             Requested size: 130.0pt x 77.2896pt.
 
-<./figures/lr_resnet_0_01.png, id=169, 415.5525pt x 247.52475pt>
+<./figures/lr_resnet_0_01.png, id=173, 415.5525pt x 247.52475pt>
 File: ./figures/lr_resnet_0_01.png Graphic file (type png)
 
 <use ./figures/lr_resnet_0_01.png>
-Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 232.
+Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 244.
 (pdftex.def)             Requested size: 130.0pt x 77.43437pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
-[5 <./figures/loss_resnet_0_1.png> <./figures/acc_resnet_0_1.png> <./figures/lr
-_lenet_0_01.png> <./figures/lr_resnet_0_1.png>]
+[5 <./figures/loss_lenet_d_0_01.png> <./figures/acc_lenet_d_0_01.png> <./figure
+s/loss_resnet_0_1.png> <./figures/acc_resnet_0_1.png>]
+<./figures/loss_resnet_0_05.png, id=184, 415.5525pt x 240.9pt>
+File: ./figures/loss_resnet_0_05.png Graphic file (type png)
+
+<use ./figures/loss_resnet_0_05.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_05.png used on input line 273.
+
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+<./figures/acc_resnet_0_05.png, id=185, 416.757pt x 240.9pt>
+File: ./figures/acc_resnet_0_05.png Graphic file (type png)
+
+<use ./figures/acc_resnet_0_05.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_05.png used on input line 274.
+(pdftex.def)             Requested size: 130.0pt x 75.14505pt.
+
+<./figures/lr_resnet_0_05.png, id=186, 415.5525pt x 240.9pt>
+File: ./figures/lr_resnet_0_05.png Graphic file (type png)
+
+<use ./figures/lr_resnet_0_05.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_05.png used on input line 275.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 3746) has occurred while \output is active []
+
+ [6 <./figures/lr_lenet_d_0_01.png> <./figures/lr_resnet_0_1.png> <./figures/lo
+ss_resnet_0_01.png> <./figures/acc_resnet_0_01.png> <./figures/lr_resnet_0_01.p
+ng>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 280.
+(hyperref)                removing `math shift' on input line 295.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 280.
+(hyperref)                removing `\epsilon' on input line 295.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 280.
+(hyperref)                removing `math shift' on input line 295.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./figures/loss_resnet_0_01.png> <./figures/acc_resnet_0_01.png> <./figures
-/lr_resnet_0_01.png>] (final_report.bbl [7])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
+[7 <./figures/loss_resnet_0_05.png> <./figures/acc_resnet_0_05.png> <./figures/
+lr_resnet_0_05.png>] (final_report.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
  [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
  (final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
 Package rerunfilecheck Info: File `final_report.out' has not changed.
 (rerunfilecheck)             Checksum: 38FCFAB2EFB19E90F8A09002F02E5FD1;1479.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
  ) 
 Here is how much of TeX's memory you used:
- 9198 strings out of 493323
- 135574 string characters out of 3139065
- 261453 words of memory out of 3000000
- 12385 multiletter control sequences out of 15000+200000
- 37814 words of font info for 132 fonts, out of 3000000 for 9000
+ 9228 strings out of 493323
+ 136317 string characters out of 3139065
+ 261329 words of memory out of 3000000
+ 12403 multiletter control sequences out of 15000+200000
+ 38169 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,10n,48p,1174b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,43p,1213b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on final_report.pdf (8 pages, 305621 bytes).
+s/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
+imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+
+Output written on final_report.pdf (8 pages, 535028 bytes).
 PDF statistics:
- 250 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 17630 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 267 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 17645 words of extra memory for PDF output out of 20736 (max. 10000000)
 
