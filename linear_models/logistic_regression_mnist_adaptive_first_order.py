@@ -10,8 +10,8 @@ import torch.optim as optim
 from sklearn.datasets import fetch_mldata
 import time
 
-nb_epochs = 5
-meta_lr = 0.000001
+nb_epochs = 10
+meta_lr = 0.0000001
 batch_size = 32
 lr_ini = 0.001
 
@@ -193,4 +193,4 @@ def train(lr):
         test_acc_values.append(acc)
 
 if __name__ == '__main__':
-    train(lr_ini)
+    train(0.1)
