@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  18 DEC 2017 15:18
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  18 DEC 2017 14:26
+>>>>>>> report
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,6 +653,7 @@ Package: printlen 2009/09/03 v1.1a print lengths with units
 ) (./final_report.aux)
 \openout1 = `final_report.aux'.
 
+<<<<<<< HEAD
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
@@ -666,6 +671,24 @@ LaTeX Font Info:    ... okay on input line 60.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+=======
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
+>>>>>>> report
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -735,24 +758,30 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box28
+<<<<<<< HEAD
 Package hyperref Info: Link coloring OFF on input line 60.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+=======
+Package hyperref Info: Link coloring OFF on input line 59.
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+>>>>>>> report
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
 
 (./final_report.out) (./final_report.out)
 \@outlinefile=\write3
 \openout3 = `final_report.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 60.
+LaTeX Info: Redefining \microtypecontext on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -795,13 +824,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -809,7 +838,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -818,65 +847,75 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 66.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+<<<<<<< HEAD
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 79.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+=======
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 78.
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+>>>>>>> report
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 78.
  [1
 
 
+<<<<<<< HEAD
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 102--103
+=======
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+>>>>>>> report
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
@@ -884,12 +923,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--185
 File: ./figures/loss_train_linear.png Graphic file (type png)
 
 <use ./figures/loss_train_linear.png>
-Package pdftex.def Info: ./figures/loss_train_linear.png used on input line 210
+Package pdftex.def Info: ./figures/loss_train_linear.png used on input line 209
 .
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_test_linear.png' not found on input line 211.
+=======
+<use ./figures/loss_test_linear.png>
+Package pdftex.def Info: ./figures/loss_test_linear.png used on input line 210.
+>>>>>>> report
 
 
 ! Package pdftex.def Error: File `loss_test_linear.png' not found.
@@ -914,21 +958,29 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 210--212
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 209--211
 [][] [] 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 228.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 227.
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_lenet_d_0_01.png' not found on input line 233.
+=======
+<use ./figures/loss_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/loss_lenet_d_0_01.png used on input line 232
+.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `loss_lenet_d_0_01.png' not found.
 
 See the pdftex.def package documentation for explanation.
@@ -956,9 +1008,13 @@ l.234 ...aphics[width=200pt]{acc_lenet_d_0_01.png}
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
+=======
+<use ./figures/acc_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/acc_lenet_d_0_01.png used on input line 233.
+>>>>>>> report
 
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 233--235
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 232--234
 [][] [] 
  []
 
@@ -966,7 +1022,7 @@ Overfull \hbox (4.41504pt too wide) in paragraph at lines 233--235
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
@@ -977,6 +1033,7 @@ LaTeX Warning: File `loss_resnet_0_1.png' not found on input line 249.
 
 ! Package pdftex.def Error: File `loss_resnet_0_1.png' not found.
 
+<<<<<<< HEAD
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
@@ -986,8 +1043,14 @@ l.249 ...raphics[width=200pt]{loss_resnet_0_1.png}
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
+=======
+<use ./figures/loss_resnet_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 248.
+(pdftex.def)             Requested size: 200.0pt x 117.46347pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `acc_resnet_0_1.png' not found on input line 250.
 
 
@@ -1003,13 +1066,19 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/acc_resnet_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 249.
+(pdftex.def)             Requested size: 200.0pt x 118.27042pt.
+>>>>>>> report
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 249--251
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 248--250
 [][] [] 
  []
 
 [6]
 
+<<<<<<< HEAD
 LaTeX Warning: File `lr_lenet_d_0_01.png' not found on input line 259.
 
 
@@ -1024,8 +1093,14 @@ l.259 ...raphics[width=200pt]{lr_lenet_d_0_01.png}
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
+=======
+<use ./figures/lr_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/lr_lenet_d_0_01.png used on input line 258.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `lr_resnet_0_1.png' not found on input line 260.
 
 
@@ -1041,26 +1116,43 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/lr_resnet_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 259.
+(pdftex.def)             Requested size: 200.0pt x 118.67215pt.
+>>>>>>> report
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 259--261
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 258--260
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
+<<<<<<< HEAD
 
 Underfull \hbox (badness 10000) in paragraph at lines 266--267
+=======
+[6 <./figures/loss_lenet_d_0_01.png> <./figures/acc_lenet_d_0_01.png> <./figure
+s/loss_resnet_0_1.png> <./figures/acc_resnet_0_1.png> <./figures/lr_lenet_d_0_0
+1.png> <./figures/lr_resnet_0_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+>>>>>>> report
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_resnet_0_01.png' not found on input line 269.
 
 
 ! Package pdftex.def Error: File `loss_resnet_0_01.png' not found.
+=======
+<use ./figures/loss_resnet_0_01.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 268.
+>>>>>>> report
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1073,9 +1165,16 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `acc_resnet_0_01.png' not found on input line 270.
+=======
+<use ./figures/acc_resnet_0_01.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 269.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `acc_resnet_0_01.png' not found.
 
 See the pdftex.def package documentation for explanation.
@@ -1104,15 +1203,28 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/lr_resnet_0_01.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 270.
+(pdftex.def)             Requested size: 130.0pt x 77.43437pt.
+>>>>>>> report
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_resnet_fo_0_1.png' not found on input line 280.
+=======
+<use ./figures/loss_resnet_fo_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_fo_0_1.png used on input line 27
+9.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `loss_resnet_fo_0_1.png' not found.
 
 See the pdftex.def package documentation for explanation.
@@ -1141,9 +1253,20 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/acc_resnet_fo_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_fo_0_1.png used on input line 280
+.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 LaTeX Warning: File `lr_resnet_fo_0_1.png' not found on input line 282.
 
+<<<<<<< HEAD
+=======
+<use ./figures/lr_resnet_fo_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_fo_0_1.png used on input line 281.
+>>>>>>> report
 
 ! Package pdftex.def Error: File `lr_resnet_fo_0_1.png' not found.
 
@@ -1157,13 +1280,28 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+<<<<<<< HEAD
 [7]
+=======
+<use ./figures/loss_resnet_100_0_02.png>
+Package pdftex.def Info: ./figures/loss_resnet_100_0_02.png used on input line 
+292.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 LaTeX Warning: File `loss_resnet_100_0_02.png' not found on input line 293.
 
+<<<<<<< HEAD
+=======
+<use ./figures/acc_resnet_100_0_02.png>
+Package pdftex.def Info: ./figures/acc_resnet_100_0_02.png used on input line 2
+93.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 ! Package pdftex.def Error: File `loss_resnet_100_0_02.png' not found.
 
+<<<<<<< HEAD
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
@@ -1174,11 +1312,32 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/lr_resnet_100_0_02.png>
+Package pdftex.def Info: ./figures/lr_resnet_100_0_02.png used on input line 29
+4.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+ [7 <./figures/loss_resnet_0_01.png> <./figures/acc_resnet_0_01.png> <./figures
+/lr_resnet_0_01.png> <./figures/loss_resnet_fo_0_1.png> <./figures/acc_resnet_f
+o_0_1.png> <./figures/lr_resnet_fo_0_1.png> <./figures/loss_resnet_100_0_02.png
+> <./figures/acc_resnet_100_0_02.png> <./figures/lr_resnet_100_0_02.png>]
+<./figures/loss_resnet_0_05.png, id=228, 415.5525pt x 240.9pt>
+File: ./figures/loss_resnet_0_05.png Graphic file (type png)
+
+<use ./figures/loss_resnet_0_05.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_05.png used on input line 309.
+>>>>>>> report
 
 LaTeX Warning: File `acc_resnet_100_0_02.png' not found on input line 294.
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `acc_resnet_100_0_02.png' not found.
+=======
+<use ./figures/acc_resnet_0_05.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_05.png used on input line 310.
+(pdftex.def)             Requested size: 130.0pt x 75.14505pt.
+>>>>>>> report
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1190,6 +1349,7 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+<<<<<<< HEAD
 
 LaTeX Warning: File `lr_resnet_100_0_02.png' not found on input line 295.
 
@@ -1259,15 +1419,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8]
 Underfull \hbox (badness 10000) in paragraph at lines 320--321
+=======
+<use ./figures/lr_resnet_0_05.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_05.png used on input line 311.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+>>>>>>> report
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_resnet_mom_lr_0_1.png' not found on input line 329.
 
 
@@ -1299,9 +1467,22 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/loss_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_mom_lr_0_1.png used on input lin
+e 328.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 LaTeX Warning: File `lr_resnet_mom_lr_0_1.png' not found on input line 331.
 
+<<<<<<< HEAD
+=======
+<use ./figures/acc_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_mom_lr_0_1.png used on input line
+ 329.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 ! Package pdftex.def Error: File `lr_resnet_mom_lr_0_1.png' not found.
 
@@ -1315,21 +1496,49 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+<<<<<<< HEAD
+=======
+<use ./figures/lr_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_mom_lr_0_1.png used on input line 
+330.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
+<<<<<<< HEAD
 [9]
 Underfull \hbox (badness 10000) in paragraph at lines 345--346
+=======
+[8 <./figures/loss_resnet_0_05.png> <./figures/acc_resnet_0_05.png> <./figures/
+lr_resnet_0_05.png> <./figures/loss_resnet_mom_lr_0_1.png> <./figures/acc_resne
+t_mom_lr_0_1.png> <./figures/lr_resnet_mom_lr_0_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+>>>>>>> report
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_resnet_val_0_1.png' not found on input line 348.
+=======
+<use ./figures/loss_resnet_val_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_val_0_1.png used on input line 3
+47.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `loss_resnet_val_0_1.png' not found.
+=======
+<use ./figures/acc_resnet_val_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_val_0_1.png used on input line 34
+8.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1373,15 +1582,30 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+<<<<<<< HEAD
+=======
+<use ./figures/lr_resnet_val_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_val_0_1.png used on input line 349
+.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+>>>>>>> report
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: File `loss_resnet_adam_0_1.png' not found on input line 363.
+=======
+<use ./figures/loss_resnet_adam_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_adam_0_1.png used on input line 
+362.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+>>>>>>> report
 
 
+<<<<<<< HEAD
 ! Package pdftex.def Error: File `loss_resnet_adam_0_1.png' not found.
 
 See the pdftex.def package documentation for explanation.
@@ -1410,23 +1634,30 @@ Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+=======
+<use ./figures/acc_resnet_adam_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_adam_0_1.png used on input line 3
+63.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
+>>>>>>> report
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 363--365
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 362--364
 [][] [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 372.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 373.
+(hyperref)                removing `\epsilon' on input line 372.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 372.
 
+<<<<<<< HEAD
 [10] (./final_report.bbl [11])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 409.
  [12]
@@ -1460,6 +1691,57 @@ r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmri8a.pfb>
 Output written on final_report.pdf (12 pages, 211905 bytes).
+=======
+[9 <./figures/loss_resnet_val_0_1.png> <./figures/acc_resnet_val_0_1.png> <./fi
+gures/lr_resnet_val_0_1.png> <./figures/loss_resnet_adam_0_1.png> <./figures/ac
+c_resnet_adam_0_1.png>] (final_report.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Underfull \vbox (badness 2600) has occurred while \output is active []
+
+ [10])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
+
+[11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
+ (final_report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 408.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 408.
+Package rerunfilecheck Info: File `final_report.out' has not changed.
+(rerunfilecheck)             Checksum: 38FCFAB2EFB19E90F8A09002F02E5FD1;1479.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 408.
+ ) 
+Here is how much of TeX's memory you used:
+ 9349 strings out of 493323
+ 139980 string characters out of 3139065
+ 263588 words of memory out of 3000000
+ 12494 multiletter control sequences out of 15000+200000
+ 38980 words of font info for 132 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 31i,11n,43p,1211b,428s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\mathi\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
+mri8a.pfb>
+Output written on final_report.pdf (11 pages, 1329341 bytes).
+>>>>>>> report
 PDF statistics:
  328 PDF objects out of 1000 (max. 8388607)
  265 compressed objects within 3 object streams

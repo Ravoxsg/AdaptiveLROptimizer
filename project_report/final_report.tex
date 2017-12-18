@@ -44,7 +44,6 @@
   
   \author{
 	Mathieu Ravaut* \\ 
-	CentraleSupelec\\
 	University of Toronto \\
 	27 King's College Circle\\
 	Toronto, ON M5S\\
@@ -240,7 +239,7 @@
   	\item The adaptive method is noisier than simple SGD.
   	\item Training is faster with the adaptive method. Looking at the first epochs shows that the training and test losses get optimized much quicklier than in the basic case.
   	\item Given the values that the training loss and accuracy reach, the adaptive method is probably overfitting (and the basic method seems to be on its way to overfit).
-  	\item Even with this overfitting, the adaptive method plateaus around the same test accuracy (59\%) than the basic method. This maximum test accuracy is reached in less than 10 epochs, versus around 35 epochs for the basic method. 
+  	\item Even with this overfitting, the adaptive method reaches the same maximum test accuracy (59\%) than the basic method. This accuracy is reached in less than 10 epochs, versus around 35 epochs for the basic method. 
   \end{itemize}
 
   We now look at the performance of ResNet-18. We train it with the reference learning rate of 0.1 given by \cite{he2016deep}, and a batch size of 256:
