@@ -63,7 +63,7 @@
   \maketitle
   
   \begin{abstract}
-    Any gradient descent requires to choose a learning rate. With deeper and deeper models, tuning that learning rate can easily become tedious and does not necesarily lead to an ideal convergence. We propose a variation of the gradient descent algorithm in the which the learning rate $\eta$ is not fixed. Instead, we learn $\eta$ itself, either by another gradient descent (first-order method), or by Newton's method (second-order). That way, gradient descent for any machine learning algorithm can be optimized. 
+    Any gradient descent requires to choose a learning rate. With deeper and deeper models, tuning that learning rate can easily become tedious and does not necesarily lead to an ideal convergence. We propose a variation of the gradient descent algorithm in the which the learning rate $\eta$ is not fixed. Instead, we learn $\eta$ itself, either by another gradient descent (first-order method), or by Newton's method (second-order). This way, gradient descent for any machine learning algorithm can be optimized. 
   \end{abstract}
   
   \thispagestyle{equalc}
@@ -236,8 +236,9 @@
   
   \subsubsection{Logistic regression}
   
-  We also tried our method with multi-class logistic regression on the MNIST dataset \cite{xiao2017fashion}. 
+  We also tried our method with multi-class logistic regression on the MNIST dataset \cite{xiao2017fashion}.
   
+  The choice of $\epsilon$ was $10^{-5}$ and we used meta-learning rate $\alpha=10^{-6}$.
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_logistic.png}
 	\includegraphics[width=200pt]{acc_logistic.png}
@@ -419,8 +420,6 @@
   \subsection{Cost of loss computations}
   
   We have shown faster training in terms of number of epochs. However, at each iteration, we have to perform five forward passes and back-propagations instead of one. Thus, computation time is slowed down compared to the fixed learning rate approach. 
-  
-  Assuming that the experimenter does not care about time but about finding the best loss function minimization, it is not such a big problem.
   
   \subsection{Overfitting}
   
