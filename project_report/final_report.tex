@@ -197,21 +197,31 @@
   
   We first tried our adaptive learning rate schedule on linear regression applied to the Boston Housing dataset \cite{boston}. This dataset of 506 points with 13 features is suitable for a simple linear regression model. We split this dataset into 400 points for training, and the remaining 106 for test.
   
-  The model consists in fitting a vector of parameters $W$ to the dataset. We are minimizing the square loss $L=||X.W-Y||^{2}$.
+  The model consists in fitting a vector of parameters $W$ to the dataset. We are minimizing the square loss $L(W)=||X.W-Y||^{2}$.
   
   Given the size of the dataset, we perform gradient descent with a full batch. After line search, a learning rate of $10^{-6}$ appears to offer an optimal loss reduction. 
   
   Again, the small training size leads us to use the analytical formula for the first-order learning rate update. The derivative $f'(\eta(t))$ is just the dot product between the current loss gradient and its previous value. We have two parameters to set: the initial learning rate $\eta_{ini}$ and the meta-learning rate $\alpha$. Common sense says that an $\alpha$ larger than $\eta_{ini}$ might get the learning rate negative, so we look for an $\alpha$ smaller than $\eta_{ini}$. After a double line-search, we use the two values $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$. 
   
-  For the second-order method, we use the finite-differences approximation previously described. Here as well, the training set is considered as one large batch. We set $\epsilon=10^{-5}$, so we now just need to choose an initial value $\eta_{ini}$. A value of $\eta_{ini}=10^{-4}$ gave a remarkably fast convergence.
+  For the second-order method, we use the finite-differences approximation previously described. Here as well, the training set is considered as one large batch. We have set $\epsilon=10^{-5}$, so we now just need to choose an initial value $\eta_{ini}$. A value of $\eta_{ini}=10^{-2}$ gave the best convergence.
 
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_train_linear.png}
 	\includegraphics[width=200pt]{loss_test_linear.png}
 	\caption{Basic, first-order, and second-order methods training and test losses over time}
   \end{figure}
+
+  We can also look at the variations of the learning rate over time:\\
   
-  From these first results, it seems that the second-order method is much more efficient, converging after only 100 iterations versus 500 hundred (not plotted above) for the basic method. The first-order method is slower and gives a higher final training loss. Instead of computing other metrics for this task, we prefer to move on to another type of machine learning problem: logistic regression.
+  \begin{figure}[!h]
+	\includegraphics[width=200pt]{lr_linear_1st_order.png}
+	\includegraphics[width=200pt]{lr_linear_2nd_order.png}
+	\caption{Learning rate for both first-order and second-order methods over epochs}
+  \end{figure}  
+  
+  From these first results, it seems that both the first-order and second-order methods are more efficient than a plain gradient descent. Indeed they reach lower training and test losses, after a comparable time of training, if not faster. However, in this case the second-order method presents some sudden and extreme amplitude variations, that we cannot really explain. The previous graphs omit such a spike at iteration 175, as including it would set the other curves to be flat lines. Instead of this spike, both loss values are 0. Such spikes were only seen in this Boston Housing dataset. 
+  
+  Note that while the first-order method steadily increases its learning rate, the second-order learning rate oscillates a lot. It is interesting to note that when training and test losses spike at 125 iterations, the second-order method reduces its learning rate value soon after, to stabilize training.
   
   
   \subsubsection{Logistic regression}
