@@ -209,11 +209,7 @@
   
   The model consists in fitting a vector of parameters $W$ to the dataset. We are minimizing the square loss $L(W)=||X.W-Y||^{2}$.
   
-  Given the size of the dataset, we perform gradient descent with a full batch. After line search, a learning rate of $10^{-6}$ appears to offer an optimal loss reduction. 
-  
-  Again, the small training size leads us to use the analytical formula for the first-order learning rate update. The derivative $f'(\eta(t))$ is just the dot product between the current loss gradient and its previous value. We have two parameters to set: the initial learning rate $\eta_{ini}$ and the meta-learning rate $\alpha$. Common sense says that an $\alpha$ larger than $\eta_{ini}$ might get the learning rate negative, so we look for an $\alpha$ smaller than $\eta_{ini}$. After a double line-search, we use the two values $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$. 
-  
-  For the second-order method, we use the finite-differences approximation previously described. Here as well, the training set is considered as one large batch. We have set $\epsilon=10^{-5}$, so we now just need to choose an initial value $\eta_{ini}$. A value of $\eta_{ini}=10^{-2}$ gave the best convergence.
+  Given the size of the dataset, we perform gradient descent with a full batch. After line searches, we decided to $\eta=10^{-6}$ for gradient descent, $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$ for first-order and $\eta_{ini}=10^{-2}$ for second-order.
 
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_train_linear.png}
@@ -229,16 +225,14 @@
 	\caption{Learning rate for both first-order and second-order methods over epochs}
   \end{figure}  
   
-  From these first results, it seems that both the first-order and second-order methods are more efficient than a plain gradient descent. Indeed they reach lower training and test losses, after a comparable time of training, if not faster. However, in this case the second-order method presents some sudden and extreme amplitude variations, that we cannot really explain. The previous graphs omit such a spike at iteration 175, as including it would set the other curves to be flat lines. Instead of this spike, both loss values are 0. Such spikes were only seen in this Boston Housing dataset. 
-  
-  Note that while the first-order method steadily increases its learning rate, the second-order learning rate oscillates a lot. It is interesting to note that when training and test losses spike at 125 iterations, the second-order method reduces its learning rate value soon after, to stabilize training.
+  From these first results, it seems that both the first-order and second-order methods are more efficient than a plain gradient descent. Indeed they reach lower training and test losses, after a comparable time of training, if not faster. However, in this case the second-order method presents some sudden and extreme amplitude variations, that we cannot really explain. It is interesting to note that when training and test losses spike at 125 iterations, the second-order method reduces its learning rate value soon after, to stabilize training.
   
   
   \subsubsection{Logistic regression}
   
   We also tried our method with multi-class logistic regression on the MNIST dataset \cite{xiao2017fashion}.
   
-  The choice of $\epsilon$ was $10^{-5}$ and we used meta-learning rate $\alpha=10^{-6}$.
+  The choice of $\epsilon$ was $10^{-5}$ and we used a meta-learning rate of $\alpha=10^{-6}$ for first-order
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_logistic.png}
 	\includegraphics[width=200pt]{acc_logistic.png}
@@ -253,7 +247,7 @@
 
   We see that with the second-order method, the learning rate stabilizes around 0.4 
 
-
+  \newpage
   \subsubsection{Image classification with neural networks}
   
   \textbf{CIFAR-10}
