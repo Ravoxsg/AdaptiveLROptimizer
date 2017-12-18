@@ -200,7 +200,9 @@
   
   \subsection{Results} 
   
-  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.  
+  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.
+  
+  In the plots for all the results, all legends with suffix \textbf{\_basic} refer to simple SGD, and all legends with suffix \textbf{\_adaptive} refer to our adaptive SGD algorithm.
   
   \subsubsection{Linear regression}
   
@@ -231,7 +233,7 @@
   
   \textbf{CIFAR-10}
   
-  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \cite{cifar}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}. We present results with the second-order method with both networks, then the first-order one with ResNet.
+  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \cite{cifar}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}. We present results with the second-order method with both networks, then the first-order method with ResNet.
   
   \emph{\textbf{Second-order method}}
   
@@ -344,7 +346,7 @@
   
   \subsection{Getting loss values via a validation set}
   
-  One idea to reduce overfitting tendency in our 2 adaptive methods could be to compute the loss on sample validation batches. This way, the update on the learning rate would guarantee to move in a direction that better reduces the generalization error (and not the training error). The formula for this variant is the same, expect for the use of the $f$ function, that now becomes:\\
+  One idea to reduce overfitting tendency in the two adaptive methods could be to compute the loss on sample validation batches. This way, the update on the learning rate would guarantee to move in a direction that better reduces the generalization error (and not the training error). The formula for this variant is the same, expect for the use of the $f$ function, that now becomes:\\
   \begin{align}
   f : R^{n} &\rightarrow R\\
   \eta &\rightarrow L_{\text{random validation batch}}(w(t)-\eta \nabla L_{\text{current training batch}})
