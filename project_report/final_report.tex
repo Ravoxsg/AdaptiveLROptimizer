@@ -71,13 +71,13 @@
   
   In the past decades, gradient descent has been widely adopted to optimize the loss function in machine learning algorithms. Lately, the machine learning community has also used the stochastic gradient descent alternative, which processes input data in batches. Gradient descent can be used in any dimension, and presents the advantage of being easy to understand and inexpensive to compute. Under certain assumptions on the loss function (such as convexity), gradient descent is guaranteed to converge to the minimum of the function, \emph{with a carefully chosen learning rate} $\eta$. Moreover, stochastic gradient descent has proven to be very efficient even in situations where the loss function is not convex, as is mostly the case with modern deep neural networks. Other methods such as Newton's method guarantee a much faster convergence, but are typically very expensive. Newton's method for instance requires to compute the inverse of the Hessian matrix of the loss function with regards to all parameters, which is impossible with today's hardware and today's deep networks using millions of parameters \cite{krizhevsky2012imagenet}. \\
   
-  The quality of a gradient descent heavily depends on the choice of the learning rate $\eta$. A too high learning rate will see the loss function jumping around the direction of steepest descent, and eventually diverge. While a very low learning rate prevents non-divergence, convergence will be very slow, and the loss function might get stuck in a local minimum. Choosing an ideal learning rate requires an intuition of the problem. Typically, researchers would start by performing a random search or a line-search over a set of different orders of magnitude of learning rates, but this is long and costly. Besides, these methods assume a fixed learning rate over time, as doing one search per iteration would require exponential computation cost. Usually, we see researchers setting the learning rate to an initial value then decreasing it one or a few items after training has progressed.\\
+  The quality of a gradient descent heavily depends on the choice of the learning rate $\eta$. A too high learning rate will see the loss function jumping around the direction of steepest descent, and eventually diverge. While a very low learning rate prevents non-divergence, convergence will be very slow, and the loss function might get stuck in a local minimum. Choosing an ideal learning rate requires an intuition of the problem. Typically, researchers would start by performing a random search or a line-search over a set of different orders of magnitude of learning rates, but this is long and costly. Besides, these methods assume a fixed learning rate over time, as doing one search per iteration would require exponential computation cost. Usually, setting the learning rate to an initial value and gradually decreasing while training is popularly used.\\
   
   In this paper, we propose to automatically find the learning rate at each epoch. We still need to input an initial value, but at each iteration, our model will find a learning rate that optimizes best the loss function at this point of learning. We explore a first-order method and a second-order one to do so, with a strong emphasis on the latter. Our method could be applied to any machine learning algorithm using gradient descent. We show faster initial convergence on a variety of tasks and models, including:
   \begin{itemize}
   	\item Linear regression on the Boston Housing Prices dataset
   	\item Logistic regression on MNIST
-  	\item Image classification with neural networks on Cifar-10 and Cifar-100
+  	\item Image classification with neural networks on CIFAR-10 and CIFAR-100
   \end{itemize} 
   
   \section{Related work}
@@ -103,45 +103,53 @@
   w(t+1) &= w(t) -\eta(t)g(t)\\
   \eta(t+1) &= h(\eta(t))
   \end{align}
-  where $g(t) = \nabla L(w(t))$, $L$ is the loss function, $w(t)$ represents the state of the model's weights at time t, and h is a \emph{continuous} function. In the following we present several ways to update $\eta(t)$.
+  where $g(t) = \nabla L(w(t))$, where $L$ is the empirical loss function, $w(t)$ represents the state of the model's weights at time $t$, and $h$ is a \emph{continuous} function. In the following section we present a first-order and second-order method to update $\eta(t)$.
   
   \subsection{First-order method}
   
-  The first-order method consists in doing gradient descent on the learning rate.\\ 
+  The first-order method consists of doing gradient descent on the learning rate.\\ 
   Let us introduce a function that will be useful in the following:\\
   \begin{align}
   f : R^{n} &\rightarrow R\\
   \eta &\rightarrow L(w(t)-\eta g(t))
   \end{align}
-  $n$ corresponds to the number of trainable parameters in the model. f represents what the loss would be if we were to perform a gradient descent update with the given learning rate $\eta$.\\
-  The first-order method is written:\\
+  
+  The intuition for the above function is simple, at time $t$ using $\eta(t)$, we suffer a loss of $L(w(t) - \eta(t)g(t)$ in the next iteration.
+  
+  $n$ corresponds to the number of trainable parameters in the model. $f$ represents what the loss would be if we were to perform a gradient descent update with the given learning rate $\eta$.\\
+  The first-order method is written as:\\
   \begin{align}
   w(t+1) &= w(t) -\eta(t)g(t)\\
   \eta(t+1) &= \eta(t) - \alpha f'(\eta(t))
   \end{align} 
-  This method introduces a new "meta" learning rate $\alpha$. It has the advantage of being light in cost as we only need gradients (first-order derivatives) of the loss function L. Indeed:\\
+  This method introduces a new "meta" learning rate $\alpha$. This method is computationally not expensive as we only require to compute one extra gradient of the loss function L as shown in the equation below. \\
   \begin{equation}
   \forall \eta, f'(\eta) = -g(t)^{T}.\nabla L(w(t)-\eta g(t)) \text{ where . is the dot product in dimension $n$}
   \end{equation}
-  In particular, at the value of $\eta$ used to get $w(t+1)$, we have the handful analytical formula:\\
+  We can rewrite the above equation as: \\
   \begin{equation}
   f'(\eta(t)) = -g(t)^{T}.g(t+1)
   \end{equation}
-  However, in practice, we prefer to compute the first-order method with finite differences.
+  
+  The intuition behind this gradient is easy: if we continue in a similar direction then we increase the learning rate, if we backtrack then we decrease it. One
+  problem is that the algorithm is not scale invariant anymore, it will behave
+  differently for $L^{'}(w) = \lambda L(w)$.
+  
+  In our experiments, we computed these gradients using finite-difference in places where it was more convenient.
   
   \subsection{Second-order method}
   
-  The previous method transfers the problem of choosing an ideal learning rate for weights to choosing an ideal learning rate for the learning rate itself. To avoid that problem, the second-order method uses a Newton-Raphson algorithm:\\
+  The previous method has the problem of choosing another meta-learning rate for optimizing the actual learning rate. To avoid this problem, we can use a second-order Newton-Raphson optimization method. \\
   \begin{align}  
   w(t+1) &= w(t) -\eta(t)g(t)\\
   \eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))}
   \end{align}
-  Now all the learning only depends on the loss, there is no more constant value to choose. \\
-  However, the second derivative of f requires building the loss Hessian matrix $H_{L}$:\\
+  Now the learning only depends on the loss, and we get rid of the meta-learning rate. \\
+  However, the second derivative of $f$ requires building the loss Hessian matrix $H_{L}$:\\
   \begin{equation}
   \forall \eta, f''(\eta) = g(t)^{T}.H_{L}(w(t)-\eta g(t))
   \end{equation}
-  We propose to approximate this Hessian using finite differences. By using this approach on f' then f'', we get an update formula of the learning rate depending only on several values of the loss function:\\
+  We propose to approximate this Hessian using finite differences similar to \cite{martens2010deep}. By using this approach on $f'$ then $f''$, we get an update formula of the learning rate depending only on several values of the loss function:\\
   \begin{equation}
   f'(\eta+\epsilon) \approx \frac{f(\eta + 2\epsilon)-f(\eta)}{2\epsilon}
   \end{equation}
@@ -166,7 +174,7 @@
   
   \subsection{Practical considerations}
   
-  With the second-order method, the denominator in the learning rate update might underflow. To avoid such a situation, we add to the denominator a small smoothing value when it reaches zero machine, but only when it does so:\\
+  With the second-order method, the denominator in the learning rate update might underflow. To avoid such a situation, we add to the denominator a small smoothing value to prevent underflow:\\
   \begin{align}
   \text{if } (f(\eta+2\epsilon)+f(\eta-2\epsilon)-2f(\eta)) \approx 0\\
   \text{then }\eta(t+1) = \eta(t) - 2\epsilon\frac{(f(\eta+\epsilon)-f(\eta-\epsilon))}{f(\eta+2\epsilon)+f(\eta-2\epsilon)-2f(\eta)+\delta}
@@ -191,7 +199,9 @@
   
   \subsection{Results} 
   
-  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.  
+  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.
+  
+  In the plots for all the results, all legends with suffix \textbf{\_basic} refer to simple SGD, and all legends with suffix \textbf{\_adaptive} refer to our adaptive SGD algorithm.
   
   \subsubsection{Linear regression}
   
@@ -222,7 +232,7 @@
   
   \textbf{CIFAR-10}
   
-  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \cite{cifar}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}. We present results with the second-order method with both networks, then the first-order one with ResNet.
+  A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \cite{cifar}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}. We present results with the second-order method with both networks, then the first-order method with ResNet.
   
   \emph{\textbf{Second-order method}}
   
@@ -335,7 +345,7 @@
   
   \subsection{Getting loss values via a validation set}
   
-  One idea to reduce overfitting tendency in our 2 adaptive methods could be to compute the loss on sample validation batches. This way, the update on the learning rate would guarantee to move in a direction that better reduces the generalization error (and not the training error). The formula for this variant is the same, expect for the use of the $f$ function, that now becomes:\\
+  One idea to reduce overfitting tendency in the two adaptive methods could be to compute the loss on sample validation batches. This way, the update on the learning rate would guarantee to move in a direction that better reduces the generalization error (and not the training error). The formula for this variant is the same, expect for the use of the $f$ function, that now becomes:\\
   \begin{align}
   f : R^{n} &\rightarrow R\\
   \eta &\rightarrow L_{\text{random validation batch}}(w(t)-\eta \nabla L_{\text{current training batch}})
