@@ -25,11 +25,12 @@ bs = 256 # batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
 eps = 1e-5 # finite differences step
 sm_value = 1e-6 # denominator smoothing in the finite differences formula
-lr_ini = 0.05 # initial learning rate
+lr_ini = 0.02 # initial learning rate
 alpha = 0 # momentum coefficient on the LR
+beta = 0 #momentum on weights
 criterion = nn.CrossEntropyLoss() # loss
 model = 'resnet' # model to use
-model_name = '{}_adaptive_{}_{}_{}.pt'.format(model,eps,nb_epochs,-int(np.log10(lr_ini))) #model name
+model_name = '{}_adaptive_{}_{}_{}_{}.pt'.format(model,n_classes,eps,nb_epochs,-int(np.log10(lr_ini))) #model name
 use_val = False #whether or not to use validation set to get loss values
 
 transform = transforms.Compose(
@@ -46,10 +47,10 @@ if (n_classes == 10):
 
 if (n_classes == 100): 
     
-    trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform)
+    trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=False, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=bs, shuffle=True, num_workers=2)
 
-    testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform)
+    testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=False, transform=transform)
     testloader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=2)
 
 val_len = int(len(trainloader)*0.2)
@@ -122,7 +123,7 @@ def make_iterations(net, lr):
             net.save_model()
             
             #loss1
-            optimizer = optim.SGD(net.parameters(), lr = (lr+eps))
+            optimizer = optim.SGD(net.parameters(), lr = (lr+eps), momentum=beta)
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -134,7 +135,7 @@ def make_iterations(net, lr):
             net.zero_grad()
 
             #loss2
-            optimizer = optim.SGD(net.parameters(), lr = (lr-eps))
+            optimizer = optim.SGD(net.parameters(), lr = (lr-eps), momentum=beta)
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -146,7 +147,7 @@ def make_iterations(net, lr):
             net.zero_grad()                        
 
             #loss3
-            optimzer = optim.SGD(net.parameters(), lr=(lr+2*eps))
+            optimzer = optim.SGD(net.parameters(), lr=(lr+2*eps), momentum=beta)
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -158,7 +159,7 @@ def make_iterations(net, lr):
             net.zero_grad()
 
             #loss4
-            optimizer = optim.SGD(net.parameters(), lr=(lr-2*eps))
+            optimizer = optim.SGD(net.parameters(), lr=(lr-2*eps), momentum=beta)
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -170,7 +171,7 @@ def make_iterations(net, lr):
             net.zero_grad()
 
             #new loss
-            optimizer = optim.SGD(net.parameters(), lr = lr)
+            optimizer = optim.SGD(net.parameters(), lr = lr, momentum=beta)
             outputs = net(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -262,7 +263,7 @@ def make_iterations(net, lr):
 
         #save to csv
         with open('results/partial_results.csv','a') as file:
-            file.write(str(train_acc)+','+str(train_loss)+','+str(test_acc)+','+str(test_l)+','+str(lr)+'\n')
+            file.write(str(train_acc)+','+str(train_loss)+','+str(test_acc)+','+str(test_l)+','+str(current_lr)+'\n')
             file.close()
 
     #save model

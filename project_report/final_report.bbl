@@ -1,5 +1,14 @@
 \begin{thebibliography}{10}
 
+\bibitem{boston}
+The boston housing dataset.
+\newblock
+  \url{https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html}.
+
+\bibitem{cifar}
+Cifar-10 and 100 datasets.
+\newblock \url{https://www.cs.toronto.edu/~kriz/cifar.html}.
+
 \bibitem{duchi2011adaptive}
 John Duchi, Elad Hazan, and Yoram Singer.
 \newblock Adaptive subgradient methods for online learning and stochastic
@@ -54,6 +63,12 @@ Tom Schaul, Sixin Zhang, and Yann LeCun.
 \newblock No more pesky learning rates.
 \newblock In {\em International Conference on Machine Learning}, pages
   343--351, 2013.
+
+\bibitem{xiao2017fashion}
+Han Xiao, Kashif Rasul, and Roland Vollgraf.
+\newblock Fashion-mnist: a novel image dataset for benchmarking machine
+  learning algorithms.
+\newblock {\em arXiv preprint arXiv:1708.07747}, 2017.
 
 \bibitem{zeiler2012adadelta}
 Matthew~D Zeiler.

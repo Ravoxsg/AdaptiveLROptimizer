@@ -20,8 +20,9 @@ n_classes = resnet.n_classes
 nb_epochs = 60
 bs = 256 #batch size
 bpetrain = int(training_set_size/bs) #number of batches to get full training set
-lr = 0.05 #learning rate
+lr = 0.02 #learning rate
 criterion = nn.CrossEntropyLoss() #loss
+beta = 0 #momentum on weights
 model = 'resnet' #model to use
 model_name = '{}_basic_{}_{}.pt'.format(model,nb_epochs,-int(np.log10(lr))) #model name
 
@@ -62,7 +63,7 @@ def make_iterations(net, lr):
     lr_values = []
     delta = 0
 
-    optimizer = optim.SGD(net.parameters(), lr=lr)
+    optimizer = optim.SGD(net.parameters(), lr=lr, momentum=beta)
     net.zero_grad()
 
     for epoch in range(nb_epochs): # no of epochs
