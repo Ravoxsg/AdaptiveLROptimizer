@@ -186,10 +186,12 @@ def train(lr):
 
         #1-loss on whole training set
         training_loss.append(long_running_loss/nfbs)
+        training_loss_on_epoch = long_running_loss/(nfbs)
         print('Training loss on this epoch: {}'.format(long_running_loss/(nfbs)))
 
         #2-accuracy on whole training set
         acc /= (nfbs*batch_size)
+        training_accuracy_on_epoch = acc
         print('Training accuracy on this epoch: {}'.format(acc))
         train_acc_values.append(acc)
         
@@ -218,16 +220,29 @@ def train(lr):
 
         #3-loss on whole test set
         test_loss.append(np.mean(np.array(t_losses)))
+        test_loss_on_epoch = np.mean(np.array(t_losses))
         print('Test loss on this epoch: {}'.format(np.mean(np.array(t_losses))))
 
         #4-accuracy on whole test set
         acc /= (nbs*batch_size)
+        test_accuracy_on_epoch = acc
         print('Test accuracy on this epoch: {}'.format(acc))
         test_acc_values.append(acc)
 
         #5-learning rate
         lr_values.append(np.mean(np.array(current_lrs)))
+        learning_rate_on_epoch = (np.mean(np.array(current_lrs)))
         print('Learning rate on this epoch: {}'.format(np.mean(np.array(current_lrs))))
+
+
+        with open('results_second_order.csv', 'a') as f:
+            running_str = ''
+            running_str += str(training_loss_on_epoch) + ","
+            running_str += str(training_accuracy_on_epoch) + ","
+            running_str += str(test_loss_on_epoch) + ","
+            running_str += str(test_accuracy_on_epoch) + ","
+            running_str += str(learning_rate_on_epoch) + "\n"
+            f.write(running_str)
 
     return training_loss, train_acc_values, test_loss, test_acc_values, lr_values
 
