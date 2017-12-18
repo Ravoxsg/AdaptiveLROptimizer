@@ -128,6 +128,7 @@
   \begin{equation}
   f'(\eta(t)) = -g(t)^{T}.g(t+1)
   \end{equation}
+  However, in practice, we prefer to compute the first-order method with finite differences.
   
   \subsection{Second-order method}
   
@@ -195,7 +196,24 @@
   
   \subsubsection{Linear regression}
   
-  We first tried our adaptive learning rate schedule on linear regression applied to the Boston Housing dataset \cite{boston}. This dataset of 506 points with 13 features is suitable for a simple linear regression model. 
+  We first tried our adaptive learning rate schedule on linear regression applied to the Boston Housing dataset \cite{boston}. This dataset of 506 points with 13 features is suitable for a simple linear regression model. We split this dataset into 400 points for training, and the remaining 106 for test.
+  
+  The model consists in fitting a vector of parameters $W$ to the dataset. We are minimizing the square loss $L=||X.W-Y||^{2}$.
+  
+  Given the size of the dataset, we perform gradient descent with a full batch. After line search, a learning rate of $10^{-6}$ appears to offer an optimal loss reduction. 
+  
+  Again, the small training size leads us to use the analytical formula for the first-order learning rate update. The derivative $f'(\eta(t))$ is just the dot product between the current loss gradient and its previous value. We have two parameters to set: the initial learning rate $\eta_{ini}$ and the meta-learning rate $\alpha$. Common sense says that an $\alpha$ larger than $\eta_{ini}$ might get the learning rate negative, so we look for an $\alpha$ smaller than $\eta_{ini}$. After a double line-search, we use the two values $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$. 
+  
+  For the second-order method, we use the finite-differences approximation previously described. Here as well, the training set is considered as one large batch. We set $\epsilon=10^{-5}$, so we now just need to choose an initial value $\eta_{ini}$. A value of $\eta_{ini}=10^{-4}$ gave a remarkably fast convergence.
+
+  \begin{figure}[!h]
+	\includegraphics[width=200pt]{loss_train_linear.png}
+	\includegraphics[width=200pt]{loss_test_linear.png}
+	\caption{Basic, first-order, and second-order methods training and test losses over time}
+  \end{figure}
+  
+  From these first results, it seems that the second-order method is much more efficient, converging after only 100 iterations versus 500 hundred (not plotted above) for the basic method. The first-order method is slower and gives a higher final training loss. Instead of computing other metrics for this task, we prefer to move on to another type of machine learning problem: logistic regression.
+  
   
   \subsubsection{Logistic regression}
   
@@ -225,7 +243,7 @@
   	\item Even with this overfitting, the adaptive method plateaus around the same test accuracy (59\%) than the basic method. This maximum test accuracy is reached in less than 10 epochs, versus around 35 epochs for the basic method. 
   \end{itemize}
 
-  We now look at the performance of ResNet-18:
+  We now look at the performance of ResNet-18. We train it with the reference learning rate of 0.1 given by \cite{he2016deep}, and a batch size of 256:
   
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_resnet_0_1.png}
