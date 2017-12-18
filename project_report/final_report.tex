@@ -236,7 +236,22 @@
   
   \subsubsection{Logistic regression}
   
-  We also tried our method with multi-class logistic regression on the fashion MNIST dataset \cite{xiao2017fashion}. 
+  We also tried our method with multi-class logistic regression on the MNIST dataset \cite{xiao2017fashion}. 
+  
+  \begin{figure}[!h]
+	\includegraphics[width=200pt]{loss_logistic.png}
+	\includegraphics[width=200pt]{acc_logistic.png}
+	\caption{Basic, first-order and second-order losses and accuracies with logistic regression on MNIST}
+  \end{figure}  
+
+  \begin{figure}[!h]
+	\includegraphics[width=200pt]{lr_logistic_1st_order.png}
+	\includegraphics[width=200pt]{lr_logistic_2nd_order.png}
+	\caption{First-order and second-order learning rate variations with logistic regression on MNIST}
+  \end{figure} 
+
+  We see that with the second-order method, the learning rate stabilizes around 0.4 
+
 
   \subsubsection{Image classification with neural networks}
   
