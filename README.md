@@ -1,6 +1,6 @@
 ## Faster gradient descent via an adaptive learning rate
 
-This repo contains code for work done by Mathieu Ravut and Satya Krishna Gorti.
+This repo contains code for work done by Mathieu Ravaut and Satya Krishna Gorti.
 
 In this project we show a new adaptive learning rate algorithm on gradient descent and explore its effectiveness on the following tasks:
 
