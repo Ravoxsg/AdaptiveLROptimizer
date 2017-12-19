@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  18 DEC 2017 17:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  19 DEC 2017 00:07
 entering extended mode
 **./final_report.tex
 (final_report.tex
@@ -852,123 +852,123 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--112
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--183
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-[4] <./figures/loss_train_linear.png, id=164, 415.5525pt x 240.9pt>
+[4] <./figures/loss_train_linear.png, id=160, 415.5525pt x 240.9pt>
 File: ./figures/loss_train_linear.png Graphic file (type png)
 
 <use ./figures/loss_train_linear.png>
-Package pdftex.def Info: ./figures/loss_train_linear.png used on input line 215
+Package pdftex.def Info: ./figures/loss_train_linear.png used on input line 225
 .
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/loss_test_linear.png, id=166, 415.5525pt x 240.9pt>
+<./figures/loss_test_linear.png, id=162, 415.5525pt x 240.9pt>
 File: ./figures/loss_test_linear.png Graphic file (type png)
 
 <use ./figures/loss_test_linear.png>
-Package pdftex.def Info: ./figures/loss_test_linear.png used on input line 216.
+Package pdftex.def Info: ./figures/loss_test_linear.png used on input line 226.
 
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 215--217
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 225--227
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
-<./figures/lr_linear_1st_order.png, id=167, 415.5525pt x 246.9225pt>
+<./figures/lr_linear_1st_order.png, id=163, 415.5525pt x 246.9225pt>
 File: ./figures/lr_linear_1st_order.png Graphic file (type png)
 
 <use ./figures/lr_linear_1st_order.png>
 Package pdftex.def Info: ./figures/lr_linear_1st_order.png used on input line 2
-23.
+33.
 (pdftex.def)             Requested size: 200.0pt x 118.84169pt.
 
-<./figures/lr_linear_2nd_order.png, id=168, 415.5525pt x 246.9225pt>
+<./figures/lr_linear_2nd_order.png, id=164, 415.5525pt x 246.9225pt>
 File: ./figures/lr_linear_2nd_order.png Graphic file (type png)
 
 <use ./figures/lr_linear_2nd_order.png>
 Package pdftex.def Info: ./figures/lr_linear_2nd_order.png used on input line 2
-24.
+34.
 (pdftex.def)             Requested size: 200.0pt x 118.84169pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 223--225
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 233--235
 [][] [] 
  []
 
-<./figures/loss_logistic.png, id=170, 415.5525pt x 240.9pt>
+<./figures/loss_logistic.png, id=166, 415.5525pt x 240.9pt>
 File: ./figures/loss_logistic.png Graphic file (type png)
 
 <use ./figures/loss_logistic.png>
-Package pdftex.def Info: ./figures/loss_logistic.png used on input line 237.
+Package pdftex.def Info: ./figures/loss_logistic.png used on input line 247.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/acc_logistic.png, id=171, 415.5525pt x 240.9pt>
+<./figures/acc_logistic.png, id=167, 415.5525pt x 240.9pt>
 File: ./figures/acc_logistic.png Graphic file (type png)
 
 <use ./figures/acc_logistic.png>
-Package pdftex.def Info: ./figures/acc_logistic.png used on input line 238.
+Package pdftex.def Info: ./figures/acc_logistic.png used on input line 248.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 237--239
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 247--249
 [][] [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./figures/lr_logistic_1st_order.png, id=172, 415.5525pt x 240.9pt>
+<./figures/lr_logistic_1st_order.png, id=168, 415.5525pt x 240.9pt>
 File: ./figures/lr_logistic_1st_order.png Graphic file (type png)
 
 <use ./figures/lr_logistic_1st_order.png>
 Package pdftex.def Info: ./figures/lr_logistic_1st_order.png used on input line
- 243.
+ 253.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/lr_logistic_2nd_order.png, id=173, 415.5525pt x 240.9pt>
+<./figures/lr_logistic_2nd_order.png, id=169, 415.5525pt x 240.9pt>
 File: ./figures/lr_logistic_2nd_order.png Graphic file (type png)
 
 <use ./figures/lr_logistic_2nd_order.png>
 Package pdftex.def Info: ./figures/lr_logistic_2nd_order.png used on input line
- 244.
+ 254.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 243--245
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 253--255
 [][] [] 
  []
 
@@ -978,297 +978,292 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [5 <./figures/loss_train_linear.png> <./figures/loss_test_linear.png> <./figure
 s/lr_linear_1st_order.png> <./figures/lr_linear_2nd_order.png>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 257.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 267.
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
-<./figures/loss_lenet_d_0_01.png, id=189, 415.5525pt x 240.9pt>
+<./figures/loss_lenet_d_0_01.png, id=184, 415.5525pt x 240.9pt>
 File: ./figures/loss_lenet_d_0_01.png Graphic file (type png)
 
 <use ./figures/loss_lenet_d_0_01.png>
-Package pdftex.def Info: ./figures/loss_lenet_d_0_01.png used on input line 262
+Package pdftex.def Info: ./figures/loss_lenet_d_0_01.png used on input line 272
 .
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/acc_lenet_d_0_01.png, id=190, 415.5525pt x 240.9pt>
+<./figures/acc_lenet_d_0_01.png, id=185, 415.5525pt x 240.9pt>
 File: ./figures/acc_lenet_d_0_01.png Graphic file (type png)
 
 <use ./figures/acc_lenet_d_0_01.png>
-Package pdftex.def Info: ./figures/acc_lenet_d_0_01.png used on input line 263.
+Package pdftex.def Info: ./figures/acc_lenet_d_0_01.png used on input line 273.
 
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 262--264
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 272--274
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
 
 [6 <./figures/loss_logistic.png> <./figures/acc_logistic.png> <./figures/lr_log
 istic_1st_order.png> <./figures/lr_logistic_2nd_order.png> <./figures/loss_lene
 t_d_0_01.png> <./figures/acc_lenet_d_0_01.png>]
-<./figures/loss_resnet_0_1.png, id=208, 417.35925pt x 245.11575pt>
+<./figures/loss_resnet_0_1.png, id=203, 417.35925pt x 245.11575pt>
 File: ./figures/loss_resnet_0_1.png Graphic file (type png)
 
 <use ./figures/loss_resnet_0_1.png>
-Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 278.
+Package pdftex.def Info: ./figures/loss_resnet_0_1.png used on input line 288.
 (pdftex.def)             Requested size: 200.0pt x 117.46347pt.
 
-<./figures/acc_resnet_0_1.png, id=209, 418.56375pt x 247.52475pt>
+<./figures/acc_resnet_0_1.png, id=204, 418.56375pt x 247.52475pt>
 File: ./figures/acc_resnet_0_1.png Graphic file (type png)
 
 <use ./figures/acc_resnet_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 279.
+Package pdftex.def Info: ./figures/acc_resnet_0_1.png used on input line 289.
 (pdftex.def)             Requested size: 200.0pt x 118.27042pt.
-
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 278--280
-[][] [] 
- []
-
-<./figures/lr_lenet_d_0_01.png, id=210, 415.5525pt x 240.9pt>
-File: ./figures/lr_lenet_d_0_01.png Graphic file (type png)
-
-<use ./figures/lr_lenet_d_0_01.png>
-Package pdftex.def Info: ./figures/lr_lenet_d_0_01.png used on input line 288.
-(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
-
-<./figures/lr_resnet_0_1.png, id=211, 416.15475pt x 246.9225pt>
-File: ./figures/lr_resnet_0_1.png Graphic file (type png)
-
-<use ./figures/lr_resnet_0_1.png>
-Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 289.
-(pdftex.def)             Requested size: 200.0pt x 118.67215pt.
 
 Overfull \hbox (4.41504pt too wide) in paragraph at lines 288--290
 [][] [] 
  []
 
+<./figures/lr_lenet_d_0_01.png, id=205, 415.5525pt x 240.9pt>
+File: ./figures/lr_lenet_d_0_01.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
+<use ./figures/lr_lenet_d_0_01.png>
+Package pdftex.def Info: ./figures/lr_lenet_d_0_01.png used on input line 297.
+(pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
+<./figures/lr_resnet_0_1.png, id=206, 416.15475pt x 246.9225pt>
+File: ./figures/lr_resnet_0_1.png Graphic file (type png)
+
+<use ./figures/lr_resnet_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_1.png used on input line 298.
+(pdftex.def)             Requested size: 200.0pt x 118.67215pt.
+
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 297--299
+[][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
-
-<./figures/loss_resnet_0_01.png, id=212, 417.35925pt x 243.91125pt>
-File: ./figures/loss_resnet_0_01.png Graphic file (type png)
-
-<use ./figures/loss_resnet_0_01.png>
-Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 298.
-
-(pdftex.def)             Requested size: 130.0pt x 75.97643pt.
-
-<./figures/acc_resnet_0_01.png, id=213, 415.5525pt x 240.9pt>
-File: ./figures/acc_resnet_0_01.png Graphic file (type png)
-
-<use ./figures/acc_resnet_0_01.png>
-Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 299.
-(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
-
-<./figures/lr_resnet_0_01.png, id=214, 415.5525pt x 247.52475pt>
-File: ./figures/lr_resnet_0_01.png Graphic file (type png)
-
-<use ./figures/lr_resnet_0_01.png>
-Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 300.
-(pdftex.def)             Requested size: 130.0pt x 77.43437pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
-[7 <./figures/loss_resnet_0_1.png> <./figures/acc_resnet_0_1.png> <./figures/lr
-_lenet_d_0_01.png> <./figures/lr_resnet_0_1.png>]
-<./figures/loss_resnet_fo_0_1.png, id=226, 415.5525pt x 240.9pt>
+<./figures/loss_resnet_0_01.png, id=207, 417.35925pt x 243.91125pt>
+File: ./figures/loss_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/loss_resnet_0_01.png>
+Package pdftex.def Info: ./figures/loss_resnet_0_01.png used on input line 307.
+
+(pdftex.def)             Requested size: 130.0pt x 75.97643pt.
+
+<./figures/acc_resnet_0_01.png, id=208, 415.5525pt x 240.9pt>
+File: ./figures/acc_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/acc_resnet_0_01.png>
+Package pdftex.def Info: ./figures/acc_resnet_0_01.png used on input line 308.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+<./figures/lr_resnet_0_01.png, id=209, 415.5525pt x 247.52475pt>
+File: ./figures/lr_resnet_0_01.png Graphic file (type png)
+
+<use ./figures/lr_resnet_0_01.png>
+Package pdftex.def Info: ./figures/lr_resnet_0_01.png used on input line 309.
+(pdftex.def)             Requested size: 130.0pt x 77.43437pt.
+ [7 <./figures/loss_resnet_0_1.png> <./figures/acc_resnet_0_1.png> <./figures/l
+r_lenet_d_0_01.png> <./figures/lr_resnet_0_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+<./figures/loss_resnet_fo_0_1.png, id=221, 415.5525pt x 240.9pt>
 File: ./figures/loss_resnet_fo_0_1.png Graphic file (type png)
 
 <use ./figures/loss_resnet_fo_0_1.png>
-Package pdftex.def Info: ./figures/loss_resnet_fo_0_1.png used on input line 30
-9.
+Package pdftex.def Info: ./figures/loss_resnet_fo_0_1.png used on input line 31
+8.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/acc_resnet_fo_0_1.png, id=227, 415.5525pt x 240.9pt>
+<./figures/acc_resnet_fo_0_1.png, id=222, 415.5525pt x 240.9pt>
 File: ./figures/acc_resnet_fo_0_1.png Graphic file (type png)
 
 <use ./figures/acc_resnet_fo_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_fo_0_1.png used on input line 310
+Package pdftex.def Info: ./figures/acc_resnet_fo_0_1.png used on input line 319
 .
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/lr_resnet_fo_0_1.png, id=228, 415.5525pt x 240.9pt>
+<./figures/lr_resnet_fo_0_1.png, id=223, 415.5525pt x 240.9pt>
 File: ./figures/lr_resnet_fo_0_1.png Graphic file (type png)
 
 <use ./figures/lr_resnet_fo_0_1.png>
-Package pdftex.def Info: ./figures/lr_resnet_fo_0_1.png used on input line 311.
+Package pdftex.def Info: ./figures/lr_resnet_fo_0_1.png used on input line 320.
 
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/loss_resnet_100_0_02.png, id=230, 415.5525pt x 240.9pt>
+<./figures/loss_resnet_100_0_02.png, id=225, 415.5525pt x 240.9pt>
 File: ./figures/loss_resnet_100_0_02.png Graphic file (type png)
 
 <use ./figures/loss_resnet_100_0_02.png>
 Package pdftex.def Info: ./figures/loss_resnet_100_0_02.png used on input line 
-322.
+331.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/acc_resnet_100_0_02.png, id=231, 415.5525pt x 240.9pt>
+<./figures/acc_resnet_100_0_02.png, id=226, 415.5525pt x 240.9pt>
 File: ./figures/acc_resnet_100_0_02.png Graphic file (type png)
 
 <use ./figures/acc_resnet_100_0_02.png>
 Package pdftex.def Info: ./figures/acc_resnet_100_0_02.png used on input line 3
-23.
+32.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/lr_resnet_100_0_02.png, id=232, 415.5525pt x 240.9pt>
+<./figures/lr_resnet_100_0_02.png, id=227, 415.5525pt x 240.9pt>
 File: ./figures/lr_resnet_100_0_02.png Graphic file (type png)
 
 <use ./figures/lr_resnet_100_0_02.png>
-Package pdftex.def Info: ./figures/lr_resnet_100_0_02.png used on input line 32
-4.
+Package pdftex.def Info: ./figures/lr_resnet_100_0_02.png used on input line 33
+3.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-Underfull \vbox (badness 3260) has occurred while \output is active []
+Underfull \vbox (badness 2165) has occurred while \output is active []
 
  [8 <./figures/loss_resnet_0_01.png> <./figures/acc_resnet_0_01.png> <./figures
 /lr_resnet_0_01.png> <./figures/loss_resnet_fo_0_1.png> <./figures/acc_resnet_f
 o_0_1.png> <./figures/lr_resnet_fo_0_1.png> <./figures/loss_resnet_100_0_02.png
 > <./figures/acc_resnet_100_0_02.png> <./figures/lr_resnet_100_0_02.png>]
-<./figures/loss_resnet_0_05.png, id=249, 415.5525pt x 240.9pt>
+<./figures/loss_resnet_0_05.png, id=244, 415.5525pt x 240.9pt>
 File: ./figures/loss_resnet_0_05.png Graphic file (type png)
 
 <use ./figures/loss_resnet_0_05.png>
-Package pdftex.def Info: ./figures/loss_resnet_0_05.png used on input line 339.
+Package pdftex.def Info: ./figures/loss_resnet_0_05.png used on input line 348.
 
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/acc_resnet_0_05.png, id=250, 416.757pt x 240.9pt>
+<./figures/acc_resnet_0_05.png, id=245, 416.757pt x 240.9pt>
 File: ./figures/acc_resnet_0_05.png Graphic file (type png)
 
 <use ./figures/acc_resnet_0_05.png>
-Package pdftex.def Info: ./figures/acc_resnet_0_05.png used on input line 340.
+Package pdftex.def Info: ./figures/acc_resnet_0_05.png used on input line 349.
 (pdftex.def)             Requested size: 130.0pt x 75.14505pt.
 
-<./figures/lr_resnet_0_05.png, id=251, 415.5525pt x 240.9pt>
+<./figures/lr_resnet_0_05.png, id=246, 415.5525pt x 240.9pt>
 File: ./figures/lr_resnet_0_05.png Graphic file (type png)
 
 <use ./figures/lr_resnet_0_05.png>
-Package pdftex.def Info: ./figures/lr_resnet_0_05.png used on input line 341.
+Package pdftex.def Info: ./figures/lr_resnet_0_05.png used on input line 350.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
-
- []
-
-<./figures/loss_resnet_mom_lr_0_1.png, id=252, 415.5525pt x 240.9pt>
-File: ./figures/loss_resnet_mom_lr_0_1.png Graphic file (type png)
-
-<use ./figures/loss_resnet_mom_lr_0_1.png>
-Package pdftex.def Info: ./figures/loss_resnet_mom_lr_0_1.png used on input lin
-e 358.
-(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
-
-<./figures/acc_resnet_mom_lr_0_1.png, id=253, 415.5525pt x 240.9pt>
-File: ./figures/acc_resnet_mom_lr_0_1.png Graphic file (type png)
-
-<use ./figures/acc_resnet_mom_lr_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_mom_lr_0_1.png used on input line
- 359.
-(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
-
-<./figures/lr_resnet_mom_lr_0_1.png, id=254, 415.5525pt x 240.9pt>
-File: ./figures/lr_resnet_mom_lr_0_1.png Graphic file (type png)
-
-<use ./figures/lr_resnet_mom_lr_0_1.png>
-Package pdftex.def Info: ./figures/lr_resnet_mom_lr_0_1.png used on input line 
-360.
-(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 368--369
 
  []
 
-[9 <./figures/loss_resnet_0_05.png> <./figures/acc_resnet_0_05.png> <./figures/
-lr_resnet_0_05.png> <./figures/loss_resnet_mom_lr_0_1.png> <./figures/acc_resne
-t_mom_lr_0_1.png> <./figures/lr_resnet_mom_lr_0_1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+<./figures/loss_resnet_mom_lr_0_1.png, id=247, 415.5525pt x 240.9pt>
+File: ./figures/loss_resnet_mom_lr_0_1.png Graphic file (type png)
+
+<use ./figures/loss_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/loss_resnet_mom_lr_0_1.png used on input lin
+e 371.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+<./figures/acc_resnet_mom_lr_0_1.png, id=248, 415.5525pt x 240.9pt>
+File: ./figures/acc_resnet_mom_lr_0_1.png Graphic file (type png)
+
+<use ./figures/acc_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/acc_resnet_mom_lr_0_1.png used on input line
+ 372.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+<./figures/lr_resnet_mom_lr_0_1.png, id=249, 415.5525pt x 240.9pt>
+File: ./figures/lr_resnet_mom_lr_0_1.png Graphic file (type png)
+
+<use ./figures/lr_resnet_mom_lr_0_1.png>
+Package pdftex.def Info: ./figures/lr_resnet_mom_lr_0_1.png used on input line 
+373.
+(pdftex.def)             Requested size: 130.0pt x 75.36192pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
 
  []
 
-<./figures/loss_resnet_val_0_1.png, id=269, 415.5525pt x 240.9pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
+
+ []
+
+<./figures/loss_resnet_val_0_1.png, id=250, 415.5525pt x 240.9pt>
 File: ./figures/loss_resnet_val_0_1.png Graphic file (type png)
 
 <use ./figures/loss_resnet_val_0_1.png>
 Package pdftex.def Info: ./figures/loss_resnet_val_0_1.png used on input line 3
-77.
+90.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/acc_resnet_val_0_1.png, id=270, 415.5525pt x 240.9pt>
+<./figures/acc_resnet_val_0_1.png, id=251, 415.5525pt x 240.9pt>
 File: ./figures/acc_resnet_val_0_1.png Graphic file (type png)
 
 <use ./figures/acc_resnet_val_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_val_0_1.png used on input line 37
-8.
+Package pdftex.def Info: ./figures/acc_resnet_val_0_1.png used on input line 39
+1.
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
 
-<./figures/lr_resnet_val_0_1.png, id=271, 415.5525pt x 240.9pt>
+<./figures/lr_resnet_val_0_1.png, id=252, 415.5525pt x 240.9pt>
 File: ./figures/lr_resnet_val_0_1.png Graphic file (type png)
 
 <use ./figures/lr_resnet_val_0_1.png>
-Package pdftex.def Info: ./figures/lr_resnet_val_0_1.png used on input line 379
+Package pdftex.def Info: ./figures/lr_resnet_val_0_1.png used on input line 392
 .
 (pdftex.def)             Requested size: 130.0pt x 75.36192pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+ [9 <./figures/loss_resnet_0_05.png> <./figures/acc_resnet_0_05.png> <./figures
+/lr_resnet_0_05.png> <./figures/loss_resnet_mom_lr_0_1.png> <./figures/acc_resn
+et_mom_lr_0_1.png> <./figures/lr_resnet_mom_lr_0_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
-<./figures/loss_resnet_adam_0_1.png, id=273, 415.5525pt x 240.9pt>
+<./figures/loss_resnet_adam_0_1.png, id=268, 415.5525pt x 240.9pt>
 File: ./figures/loss_resnet_adam_0_1.png Graphic file (type png)
 
 <use ./figures/loss_resnet_adam_0_1.png>
 Package pdftex.def Info: ./figures/loss_resnet_adam_0_1.png used on input line 
-392.
+405.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-<./figures/acc_resnet_adam_0_1.png, id=274, 415.5525pt x 240.9pt>
+<./figures/acc_resnet_adam_0_1.png, id=269, 415.5525pt x 240.9pt>
 File: ./figures/acc_resnet_adam_0_1.png Graphic file (type png)
 
 <use ./figures/acc_resnet_adam_0_1.png>
-Package pdftex.def Info: ./figures/acc_resnet_adam_0_1.png used on input line 3
-93.
+Package pdftex.def Info: ./figures/acc_resnet_adam_0_1.png used on input line 4
+06.
 (pdftex.def)             Requested size: 200.0pt x 115.94312pt.
 
-Overfull \hbox (4.41504pt too wide) in paragraph at lines 392--394
+Overfull \hbox (4.41504pt too wide) in paragraph at lines 405--407
 [][] [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 402.
+(hyperref)                removing `math shift' on input line 415.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 402.
+(hyperref)                removing `\epsilon' on input line 415.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 402.
+(hyperref)                removing `math shift' on input line 415.
 
 [10 <./figures/loss_resnet_val_0_1.png> <./figures/acc_resnet_val_0_1.png> <./f
 igures/lr_resnet_val_0_1.png> <./figures/loss_resnet_adam_0_1.png> <./figures/a
@@ -1283,42 +1278,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 436.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 449.
  [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 436.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 449.
 
 (final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 436.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 436.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 449.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 449.
 Package rerunfilecheck Info: File `final_report.out' has not changed.
 (rerunfilecheck)             Checksum: 38FCFAB2EFB19E90F8A09002F02E5FD1;1479.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 436.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 449.
  ) 
 Here is how much of TeX's memory you used:
- 9388 strings out of 493323
- 140918 string characters out of 3139065
- 262464 words of memory out of 3000000
+ 9380 strings out of 493323
+ 140814 string characters out of 3139065
+ 262209 words of memory out of 3000000
  12518 multiletter control sequences out of 15000+200000
  39240 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,11n,43p,1211b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,11n,43p,1211b,442s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\mathi\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
 ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
->
-Output written on final_report.pdf (12 pages, 1574831 bytes).
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
+mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final_report.pdf (12 pages, 1582086 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
  18267 words of extra memory for PDF output out of 20736 (max. 10000000)
 
