@@ -1,6 +1,50 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: final_report.aux
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: final_report.aux
 The style file: plain.bst
 Database file #1: ref.bib
 Warning--to sort, need author or key in boston
 Warning--to sort, need author or key in cifar
-(There were 2 warnings)
+Warning--empty journal in lecun-mnisthandwrittendigit-2010
+You've used 14 entries,
+            2118 wiz_defined-function locations,
+            582 strings with 6052 characters,
+and the built_in function-call counts, 4577 in all, are:
+= -- 459
+> -- 169
+< -- 5
++ -- 69
+- -- 54
+* -- 287
+:= -- 712
+add.period$ -- 40
+call.type$ -- 14
+change.case$ -- 69
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 192
+empty$ -- 392
+format.name$ -- 54
+if$ -- 991
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 12
+newline$ -- 71
+num.names$ -- 24
+pop$ -- 82
+preamble$ -- 1
+purify$ -- 55
+quote$ -- 0
+skip$ -- 159
+stack$ -- 0
+substring$ -- 310
+swap$ -- 56
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 3
+while$ -- 44
+width$ -- 16
+write$ -- 145
+(There were 3 warnings)

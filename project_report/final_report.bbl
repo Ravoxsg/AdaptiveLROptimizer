@@ -47,6 +47,11 @@ Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
 \newblock Gradient-based learning applied to document recognition.
 \newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
 
+\bibitem{lecun-mnisthandwrittendigit-2010}
+Yann LeCun and Corinna Cortes.
+\newblock {MNIST} handwritten digit database.
+\newblock 2010.
+
 \bibitem{martens2010deep}
 James Martens.
 \newblock Deep learning via hessian-free optimization.
@@ -63,12 +68,6 @@ Tom Schaul, Sixin Zhang, and Yann LeCun.
 \newblock No more pesky learning rates.
 \newblock In {\em International Conference on Machine Learning}, pages
   343--351, 2013.
-
-\bibitem{xiao2017fashion}
-Han Xiao, Kashif Rasul, and Roland Vollgraf.
-\newblock Fashion-mnist: a novel image dataset for benchmarking machine
-  learning algorithms.
-\newblock {\em arXiv preprint arXiv:1708.07747}, 2017.
 
 \bibitem{zeiler2012adadelta}
 Matthew~D Zeiler.

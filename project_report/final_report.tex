@@ -211,7 +211,7 @@
   
   We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses as optimizer plain stochastic gradient descent with a fixed learning rate. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.
   
-  In the plots for all the results, all legends with suffix \textbf{\_basic} refer to simple SGD, and all legends with suffix \textbf{\_adaptive} refer to our adaptive SGD algorithm.
+  In the plots for all the results, the legends with suffix \textbf{\_basic} refer to simple SGD, and all legends with suffix \textbf{\_adaptive / \_first\_order / \_second\_order} refer to our adaptive SGD algorithm.
   
   \subsubsection{Linear regression}
   
@@ -240,7 +240,7 @@
   
   \subsubsection{Logistic regression}
   
-  We also tried our method with multi-class logistic regression on the MNIST dataset \cite{xiao2017fashion}.
+  We also tried our method with multi-class logistic regression on the MNIST dataset \cite{lecun-mnisthandwrittendigit-2010}.
   
   The choice of $\epsilon$ was $10^{-5}$ and we used a meta-learning rate of $\alpha=10^{-6}$ for first-order
   \begin{figure}[!h]
