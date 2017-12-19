@@ -99,11 +99,15 @@
   \section{Adaptive learning rate}
   
   SGD with an adaptive learning rate has the following form:\\
-  \begin{align}
-  w(t+1) &= w(t) -\eta(t)g(t)\\
-  \eta(t+1) &= h(\eta(t))
-  \end{align}
-  where $g(t) = \nabla L(w(t))$, where $L$ is the empirical loss function, $w(t)$ represents the state of the model's weights at time $t$, and $h$ is a \emph{continuous} function. In the following section we present a first-order and second-order method to update $\eta(t)$.
+  $$
+  \left\{
+  \begin{array}{lll}
+  w(t+1) & = & w(t) -\eta(t)g(t)\\
+  \eta(t+1) & = & h(\eta(t))
+  \end{array}
+  \right.
+  $$
+  where $g(t) = \nabla L(w(t))$, $L$ is the empirical loss function, $w(t)$ represents the state of the model's weights at time $t$, and $h$ is a \emph{continuous} function. In the following section we present a first-order and second-order method to update $\eta(t)$.
   
   \subsection{First-order method}
   
@@ -114,14 +118,16 @@
   \eta &\rightarrow L(w(t)-\eta g(t))
   \end{align}
   
-  The intuition for the above function is simple, at time $t$ using $\eta(t)$, we suffer a loss of $L(w(t) - \eta(t)g(t)$ in the next iteration.
-  
-  $n$ corresponds to the number of trainable parameters in the model. $f$ represents what the loss would be if we were to perform a gradient descent update with the given learning rate $\eta$.\\
+  The intuition for the above function is simple: at time $t$ using $\eta(t)$, we suffer a loss of $L(w(t) - \eta(t)g(t))$ in the next iteration, so $f$ represents what the loss would be if we were to perform a gradient descent update with the given learning rate $\eta$.\\
   The first-order method is written as:\\
-  \begin{align}
-  w(t+1) &= w(t) -\eta(t)g(t)\\
-  \eta(t+1) &= \eta(t) - \alpha f'(\eta(t))
-  \end{align} 
+  $$
+  \left\{
+  \begin{array}{lll}
+  w(t+1) & = & w(t) -\eta(t)g(t)\\
+  \eta(t+1) & = & \eta(t) - \alpha f'(\eta(t))
+  \end{array}
+  \right.
+  $$
   This method introduces a new "meta" learning rate $\alpha$. This method is computationally not expensive as we only require to compute one extra gradient of the loss function L as shown in the equation below. \\
   \begin{equation}
   \forall \eta, f'(\eta) = -g(t)^{T}.\nabla L(w(t)-\eta g(t)) \text{ where . is the dot product in dimension $n$}
@@ -139,15 +145,19 @@
   
   \subsection{Second-order method}
   
-  The previous method has the problem of choosing another meta-learning rate for optimizing the actual learning rate. To avoid this problem, we can use a second-order Newton-Raphson optimization method. \\
-  \begin{align}  
+  The previous method presents the problem of choosing another meta-learning rate for optimizing the actual learning rate. To avoid this problem, we can use a second-order Newton-Raphson optimization method. \\
+  $$
+  \left\{
+  \begin{array}{lll}
   w(t+1) &= w(t) -\eta(t)g(t)\\
   \eta(t+1) &= \eta(t) - \frac{f'(\eta(t))}{f''(\eta(t))}
-  \end{align}
+  \end{array}
+  \right.
+  $$
   Now the learning only depends on the loss, and we get rid of the meta-learning rate. \\
   However, the second derivative of $f$ requires building the loss Hessian matrix $H_{L}$:\\
   \begin{equation}
-  \forall \eta, f''(\eta) = g(t)^{T}.H_{L}(w(t)-\eta g(t))
+  \forall \eta, f''(\eta) = -g(t)^{T}.H_{L}(w(t)-\eta g(t))
   \end{equation}
   We propose to approximate this Hessian using finite differences similar to \cite{martens2010deep}. By using this approach on $f'$ then $f''$, we get an update formula of the learning rate depending only on several values of the loss function:\\
   \begin{equation}
@@ -199,7 +209,7 @@
   
   \subsection{Results} 
   
-  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses plain stochastic gradient descent with a fixed learning rate as optimizer. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.
+  We compare our second-order method to a standard SGD method, which uses a fixed learning rate schedule. In the following, this standard method will be called the \emph{basic method}. That means, the basic method uses as optimizer plain stochastic gradient descent with a fixed learning rate. The first order method was quite unstable and less efficient. When relevant, we also include its results. We compare loss and accuracy on both training and test sets. Our goal in these experiments is not to break state of the art on the given problem, but to show an improvement in our method compared to the basic approach, especially in the first few dozens passes through the training dataset. Thus, we do not use any particular trick (not even momentum on the weights update) to improve training accuracy (like data augmentation or parameter tuning), except when we add dropout to prevent overfitting in some cases.
   
   In the plots for all the results, all legends with suffix \textbf{\_basic} refer to simple SGD, and all legends with suffix \textbf{\_adaptive} refer to our adaptive SGD algorithm.
   
@@ -209,23 +219,23 @@
   
   The model consists in fitting a vector of parameters $W$ to the dataset. We are minimizing the square loss $L(W)=||X.W-Y||^{2}$.
   
-  Given the size of the dataset, we perform gradient descent with a full batch. After line searches, we decided to $\eta=10^{-6}$ for gradient descent, $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$ for first-order and $\eta_{ini}=10^{-2}$ for second-order.
+  Given the size of the dataset, we perform gradient descent with a full batch. After line searches, we decided to use $\eta=10^{-6}$ for gradient descent, $\eta_{ini} = 10^{-7}$ and $\alpha = 10^{-9}$ for first-order and $\eta_{ini}=10^{-2}$ for second-order.
 
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_train_linear.png}
 	\includegraphics[width=200pt]{loss_test_linear.png}
-	\caption{Basic, first-order, and second-order methods training and test losses over time}
+	\caption{Basic, first-order, and second-order methods training and test losses, Boston Housing}
   \end{figure}
 
-  We can also look at the variations of the learning rate over time:\\
+  We can also look at the variations of the learning rate over time for both adaptive methods:\\
   
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{lr_linear_1st_order.png}
 	\includegraphics[width=200pt]{lr_linear_2nd_order.png}
-	\caption{Learning rate for both first-order and second-order methods over epochs}
+	\caption{Learning rate for both first-order and second-order methods, Boston Housing}
   \end{figure}  
   
-  From these first results, it seems that both the first-order and second-order methods are more efficient than a plain gradient descent. Indeed they reach lower training and test losses, after a comparable time of training, if not faster. However, in this case the second-order method presents some sudden and extreme amplitude variations, that we cannot really explain. It is interesting to note that when training and test losses spike at 125 iterations, the second-order method reduces its learning rate value soon after, to stabilize training.
+  From these first results, it seems that both the first-order and second-order methods are more efficient than a plain gradient descent. Indeed they reach lower training and test losses, after a comparable time of training, if not faster. However, in this case the second-order method presents some sudden and extreme amplitude variations, that we cannot really explain. There was an extremely high amplitude peak at 175 iterations, that we set down to 0 in the above graphs. Note that when training and test losses spike at 125 iterations, the second-order method reduces its learning rate value soon after.
   
   
   \subsubsection{Logistic regression}
@@ -236,21 +246,21 @@
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_logistic.png}
 	\includegraphics[width=200pt]{acc_logistic.png}
-	\caption{Basic, first-order and second-order losses and accuracies with logistic regression on MNIST}
+	\caption{Basic, first-order and second-order losses and accuracies, logistic regression, MNIST}
   \end{figure}  
 
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{lr_logistic_1st_order.png}
 	\includegraphics[width=200pt]{lr_logistic_2nd_order.png}
-	\caption{First-order and second-order learning rate variations with logistic regression on MNIST}
+	\caption{First-order and second-order learning rate variations, logistic regression, MNIST}
   \end{figure} 
 
-  We see that with the second-order method, the learning rate stabilizes around 0.4 
+  We see that with the second-order method, the learning rate stabilizes around 0.4. 
 
   \newpage
   \subsubsection{Image classification with neural networks}
   
-  \textbf{CIFAR-10}
+  \textbf{-10}
   
   A common benchmark in machine learning is to classify images on the CIFAR-10 dataset \cite{cifar}. Deep neural networks are most suited for this task \cite{krizhevsky2012imagenet}. In consequence, we used a LeNet with 5 layers (2 convolutional followed by 3 fully-connected layers) and ResNet-18 \cite{he2016deep}. We present results with the second-order method with both networks, then the first-order method with ResNet.
   
@@ -261,34 +271,33 @@
   \begin{figure}[!h]
   	\includegraphics[width=200pt]{loss_lenet_d_0_01.png}
   	\includegraphics[width=200pt]{acc_lenet_d_0_01.png}
-  	\caption{Second-order and basic methods with LeNet, initial learning rate: 0.01}
+  	\caption{Second-order and basic methods with LeNet, CIFAR-10, initial learning rate: 0.01}
   \end{figure}
 
   From here we can notice four things:\\
   \begin{itemize}
   	\item The adaptive method is noisier than simple SGD.
-  	\item Training is faster with the adaptive method. Looking at the first epochs shows that the training and test losses get optimized much quicklier than in the basic case.
-  	\item Given the values that the training loss and accuracy reach, the adaptive method is probably overfitting (and the basic method seems to be on its way to overfit).
+  	\item Training is faster with the adaptive method. Looking at the first epochs shows that the training and test losses get optimized much quicklier than in the basic case. This is of special interest when doing early stopping.
+  	\item Given the values that the training loss and accuracy reach, the adaptive method is probably overfitting (but the basic method seems to be on its way to overfit as well).
   	\item Even with this overfitting, the adaptive method reaches the same maximum test accuracy (59\%) than the basic method. This accuracy is reached in less than 10 epochs, versus around 35 epochs for the basic method. 
   \end{itemize}
 
-  We now look at the performance of ResNet-18. We train it with the reference learning rate of 0.1 given by \cite{he2016deep}, and a batch size of 256:
+  We now look at the performance of ResNet-18 (with two added dropout layers). We train it with the reference learning rate of 0.1 given by \cite{he2016deep}, and a batch size of 256:
   
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{loss_resnet_0_1.png}
 	\includegraphics[width=200pt]{acc_resnet_0_1.png}
-	\caption{Second-order and basic methods with ResNet, initial learning rate: 0.1}
+	\caption{Second-order and basic methods with ResNet, CIFAR-10, initial learning rate: 0.1}
   \end{figure}
   
-  Once again, in the adaptive schedule, all training metrics (training and test loss, training and test accuracies) are optimized faster. Typically, in the first epochs, training loss is twice lower in the adaptive version. The second-order method reaches its plateau sooner as well, after around 15 epochs versus 40 in the basic case, and then starts to overfit. Interestingly, this time the best performance achieved by the adaptive method seems to be slightly better (74.4\%) than the best one achieved by the basic method (71\%). In the following, we will try several techniques to improve our method's performance. This current experiment with ResNet-18 on Cifar-10 with an initial learning rate of 0.1 will be our reference. 
-  
-  We now explore the variations of the learning rate for both networks:
+  Once again, in the adaptive schedule, all training metrics (training and test loss, training and test accuracies) are optimized faster. Typically, in the first epochs, training loss is twice lower in the adaptive version. The second-order method reaches its plateau sooner as well, after around 15 epochs versus 40 in the basic case, and then starts to overfit. Interestingly, this time the best performance achieved by the adaptive method seems to be slightly better (74.4\%) than the best one achieved by the basic method (71\%). In the following, we will try several techniques to improve our method's performance. \\
+  This current experiment with ResNet-18 on CIFAR-10 with an initial learning rate of 0.1 will be our reference. We now explore the variations of the learning rate for both networks:
   
   \begin{figure}[!h]
 	\includegraphics[width=200pt]{lr_lenet_d_0_01.png}
 	\includegraphics[width=200pt]{lr_resnet_0_1.png}
-	\caption{Learning rate variations, LeNet and ResNet, Cifar-10}
-\end{figure}
+	\caption{Learning rate variations, LeNet and ResNet, CIFAR-10}
+  \end{figure}
   
   For LeNet, it seems that the initial learning rate value was a bit too low. The network increases it to boost convergence, but struggles to stabilize to a fixed zone. With ResNet, it seems that a starting learning rate of 0.1 was a bit too high, as we see it decrease its learning rate. Something interesting starts happening here after 30 epochs, as the learning rate starts oscillating. As the loss value stops changing because convergence is reached, it is probable that the denominator in the learning rate updates gets very small.\\
   
@@ -298,7 +307,7 @@
 	\includegraphics[width=130pt]{loss_resnet_0_01.png}
 	\includegraphics[width=130pt]{acc_resnet_0_01.png}
 	\includegraphics[width=130pt]{lr_resnet_0_01.png}
-	\caption{Second-order basic methods with ResNet, initial learning rate: 0.01}
+	\caption{Second-order and basic methods with ResNet, CIFAR-10, initial learning rate: 0.01}
   \end{figure}
   
   The adaptive schedule performs consitently better than the basic one with testing accuracy being 10 to 15 points higher all the way around. This time, the initial learning rate seems to be too small, as the network increases its value until stabilizing it around 0.05, a value around the which it oscillated at the end of the previous training schedule. As training slows down, the network slowly decreases the learning rate value.\\
@@ -309,23 +318,23 @@
 	\includegraphics[width=130pt]{loss_resnet_fo_0_1.png}
 	\includegraphics[width=130pt]{acc_resnet_fo_0_1.png}
 	\includegraphics[width=130pt]{lr_resnet_fo_0_1.png}
-	\caption{First-order basic methods with ResNet, initial learning rate: 0.1}
+	\caption{First-order and basic methods with ResNet, CIFAR-10, initial learning rate: 0.1}
   \end{figure}
 
    The first-order method did not bring much of an improvement in comparison to the reference experiment. The tendency to increase overfitting that we noticed with the second-order method is strengthened here, and the learning rate variations are noisier. However, with lower initial learning rates, the first-order method converges sensibly faster than the basic method, but less than the second-order one. 
   
   \textbf{CIFAR-100}
   
-  In this section, we increment difficulty by solving an image classification problem with 10 times more classes (Cifar-100 \cite{cifar} has 100 classes). After a line-search, tan ideal learning rate to train ResNet-18 on Cifar-100 seems to be 0.02.
+  In this section, we increment difficulty by solving an image classification problem with 10 times more classes (CIFAR-100 \cite{cifar} has 100 classes). After a line-search, the ideal learning rate to train ResNet-18 on CIFAR-100 seems to be 0.02.
 
   \begin{figure}[!h]
 	\includegraphics[width=130pt]{loss_resnet_100_0_02.png}
 	\includegraphics[width=130pt]{acc_resnet_100_0_02.png}
 	\includegraphics[width=130pt]{lr_resnet_100_0_02.png}
-	\caption{Second-order basic methods with ResNet on Cifar-100, initial learning rate: 0.02}
+	\caption{Second-order and basic methods with ResNet, CIFAR-100, initial learning rate: 0.02}
   \end{figure}
   
-  Once again, we see a faster convergence, a better generalization but also a stronger tendency to overfit. The initial learning rate of 0.02 seemed to be a judicious choice as the network barely changes its value over time. We lacked the computational resource to explore training on this dataset for a longer and more relevant period of time. 
+  Once again, we see a faster loss reduction, a better generalization but also a stronger tendency to overfit. The initial learning rate of 0.02 seemed to be a judicious choice as the network barely changes its value over time. We lacked the computational resource to explore training on this dataset for a longer and more relevant period of time. 
   
   \section{Further exploration}
   
@@ -339,7 +348,7 @@
 	\includegraphics[width=130pt]{loss_resnet_0_05.png}
 	\includegraphics[width=130pt]{acc_resnet_0_05.png}
 	\includegraphics[width=130pt]{lr_resnet_0_05.png}
-	\caption{Second-order adaptive learning rate and basic method with ResNet, initial learning rate 0.05}
+	\caption{Second-order and basic methods with ResNet, CIFAR-10, initial learning rate: 0.05}
   \end{figure}
   
   The trends noticed in the previous training are confirmed. This time, the learning rate variations are of much weaker amplitude, as this parameter is already in a ideal zone. The network slightly raises its learning rate to kick off training at first, then lowly decreases it over time, as training converges. 
@@ -347,10 +356,14 @@
   \subsection{Momentum}
   
   In the same way that momentum reduces noise in a gradient descent for weights, we thought that adding momentum on the learning rate updates could help for both our methods. For the second-order method, the update on $\eta$ now is:\\
-  \begin{align}
+  $$
+  \left\{
+  \begin{array}{lll}
   \delta(t+1) &= \beta*\delta(t) - 2\epsilon\frac{(f(\eta+\epsilon)-f(\eta-\epsilon))}{f(\eta+2\epsilon)+f(\eta-2\epsilon)-2f(\eta)}\\
   \eta(t+1) &= \eta(t) + \delta(t+1)
-  \end{align}
+  \end{array}
+  \right.
+  $$
   
   Here are the results on our reference experiment with $\beta=0.9$:\\
   
@@ -368,7 +381,7 @@
   One idea to reduce overfitting tendency in the two adaptive methods could be to compute the loss on sample validation batches. This way, the update on the learning rate would guarantee to move in a direction that better reduces the generalization error (and not the training error). The formula for this variant is the same, expect for the use of the $f$ function, that now becomes:\\
   \begin{align}
   f : R^{n} &\rightarrow R\\
-  \eta &\rightarrow L_{\text{random validation batch}}(w(t)-\eta \nabla L_{\text{current training batch}})
+  \eta &\rightarrow L_{\text{on a random validation batch}}(w(t)-\eta \nabla L_{\text{current training loss}})
   \end{align}
   
   We partitioned the original training set in a training and validation set, and applied this technique on the reference experiment:\\
@@ -391,7 +404,7 @@
   \begin{figure}[!h]
   	\includegraphics[width=200pt]{loss_resnet_adam_0_1.png}
   	\includegraphics[width=200pt]{acc_resnet_adam_0_1.png}
-  	\caption{Second-order and basic method using Adam with ResNet, initial learning rate: 0.1}
+  	\caption{Second-order and Adam with ResNet, initial learning rate: 0.1}
   \end{figure}
 
   In the first epochs, our method performs better than an Adam optimization, but the overfitting difference is wider. 
@@ -401,15 +414,15 @@
   
   \subsection{Choice of step $\epsilon$}
   
-  In finite differences, the choice of the paramater $\epsilon$ is a main issue. Indeed, in any deep learning problem, we can expect the loss function to present noisy oscillations locally. On one hand, with a too small value of $\epsilon$, we might not capture meaningful variations of the f function. On the other hand, a too large $\epsilon$ would make the learning rate oscillate too much, reaching either too high values or even negative values. Both cases can in turn quickly make the loss function diverge. We have seen empirically that when the learning rate gets negative, training will likely not converge. 
+  In finite differences, the choice of the paramater $\epsilon$ is a main issue. Indeed, in any deep learning problem, we can expect the loss function to present noisy oscillations locally. On one hand, with a too small value of $\epsilon$, we might not capture meaningful variations of the $f$ function. On the other hand, a too large $\epsilon$ would make the learning rate oscillate too much, reaching either too high values or even negative values. Both cases can in turn quickly make the loss function diverge. We have seen empirically that when the learning rate gets negative, training will likely not converge. 
   
   All our reported experiments were done using an $\epsilon$ value of $10^{-5}$, which seemed to be a good compromise, and showed stable results for a wide variety of tasks. Tuning $\epsilon$ for a given problem overthrows the interest of not having to tune a learning rate anymore. Ideally, a deeper investigation of finite differences should be able to give values of $\epsilon$ usable for a large variety of tasks. 
   
   \subsection{Choice of the initial learning rate}
   
-  In our algorithm schedule, learning rate variations are automatic, but we have to choose the initial rate value. 
+  In our algorithm schedule, learning rate variations are automatic, but we have to choose the initial value. 
   
-  This value seems not to matter so much, as with several ranges of initial values, our algorithm still does better than the basic method. Besides, it always adapts its learning rate to reach the same zone, whatever the initial value (in a reasonable range of learning rate values, e.g. $10^{-4}$ to $1$ for Cifar-10 for instance).
+  This value seems not to matter so much, as with several ranges of initial values, our algorithm still does better than the basic method. Besides, it always adapts its learning rate to reach the same zone, whatever the initial value (in a reasonable range of learning rate values, e.g. $10^{-4}$ to $1$ for CIFAR-10 for instance).
   
   \subsection{Cost of loss computations}
   
@@ -419,7 +432,7 @@
   
   Our version of gradient descent reduces the training loss much faster than in the fixed learning rate approach. The training loss sometimes gets down to very surprisingly low values, while the test loss does not reduce much more than in the basic model. On the contrary, the test loss usually increases and ends at a higher value than the basic method one. Thus, our model seems to be more likely to overfit. We have tried to add dropout to the ResNet model, and that proved successful in reducing the gap between training and testing performance.
   
-  However, in terms of accuracy, the second-order method performs systematically as well as the basic method, if not slightly better. This happens surprisingly even when its test loss is higher. 
+  However, in terms of accuracy, the second-order method performs systematically as well as the basic method, if not slightly better. Top test accuracy is usually reached early on, which suggests that our adaptive method should be used combined with early stopping.
   
   \section{Conclusion}
   
